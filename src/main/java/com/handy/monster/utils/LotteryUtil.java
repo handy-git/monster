@@ -1,4 +1,4 @@
-package cn.handy.monster.utils;
+package com.handy.monster.utils;
 
 import java.util.ArrayList;
 import java.util.Iterator;

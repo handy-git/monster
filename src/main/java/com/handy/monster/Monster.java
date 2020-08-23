@@ -1,9 +1,9 @@
-package cn.handy.monster;
+package com.handy.monster;
 
-import cn.handy.monster.command.MonsterCommand;
-import cn.handy.monster.listener.MonsterLevelListener;
-import cn.handy.monster.listener.MonsterListener;
-import cn.handy.monster.utils.ConfigUtil;
+import com.handy.monster.command.MonsterCommand;
+import com.handy.monster.listener.MonsterLevelListener;
+import com.handy.monster.listener.MonsterListener;
+import com.handy.monster.utils.ConfigUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;

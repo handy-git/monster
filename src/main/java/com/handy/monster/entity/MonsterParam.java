@@ -1,6 +1,6 @@
-package cn.handy.monster.entity;
+package com.handy.monster.entity;
 
-import cn.handy.monster.constant.EntityEquipmentTypeEnum;
+import com.handy.monster.constant.EntityEquipmentTypeEnum;
 import lombok.Data;
 import org.bukkit.Material;
 import org.bukkit.inventory.EntityEquipment;

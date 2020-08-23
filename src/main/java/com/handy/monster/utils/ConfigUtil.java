@@ -1,7 +1,7 @@
-package cn.handy.monster.utils;
+package com.handy.monster.utils;
 
-import cn.handy.monster.Monster;
-import cn.handy.monster.constant.MonsterConstants;
+import com.handy.monster.Monster;
+import com.handy.monster.constant.MonsterConstants;
 import org.bukkit.configuration.file.FileConfiguration;
 
 import java.io.File;

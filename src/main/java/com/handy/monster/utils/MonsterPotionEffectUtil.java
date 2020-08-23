@@ -1,4 +1,4 @@
-package cn.handy.monster.utils;
+package com.handy.monster.utils;
 
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.potion.PotionEffect;

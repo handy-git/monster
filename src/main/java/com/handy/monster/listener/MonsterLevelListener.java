@@ -1,7 +1,7 @@
-package cn.handy.monster.listener;
+package com.handy.monster.listener;
 
-import cn.handy.monster.constant.MonsterConstants;
-import cn.handy.monster.utils.BaseUtil;
+import com.handy.monster.constant.MonsterConstants;
+import com.handy.monster.utils.BaseUtil;
 import org.bukkit.ChatColor;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.entity.LivingEntity;

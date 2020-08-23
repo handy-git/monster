@@ -1,6 +1,6 @@
-package cn.handy.monster.constant;
+package com.handy.monster.constant;
 
-import cn.handy.monster.utils.LotteryUtil;
+import com.handy.monster.utils.LotteryUtil;
 
 import java.util.List;
 import java.util.regex.Pattern;

@@ -1,6 +1,6 @@
-package cn.handy.monster.utils;
+package com.handy.monster.utils;
 
-import cn.handy.monster.constant.MonsterConstants;
+import com.handy.monster.constant.MonsterConstants;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.command.CommandSender;

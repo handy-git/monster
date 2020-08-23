@@ -1,4 +1,4 @@
-package cn.handy.monster.constant;
+package com.handy.monster.constant;
 
 public enum EntityEquipmentTypeEnum {
     BOOTS(0, "鞋子"),

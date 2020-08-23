@@ -1,10 +1,10 @@
-package cn.handy.monster.listener;
+package com.handy.monster.listener;
 
-import cn.handy.monster.constant.EntityEquipmentTypeEnum;
-import cn.handy.monster.constant.MonsterConstants;
-import cn.handy.monster.utils.MonsterEquipmentUtil;
-import cn.handy.monster.utils.MonsterLevelUtil;
-import cn.handy.monster.utils.MonsterPotionEffectUtil;
+import com.handy.monster.constant.EntityEquipmentTypeEnum;
+import com.handy.monster.constant.MonsterConstants;
+import com.handy.monster.utils.MonsterEquipmentUtil;
+import com.handy.monster.utils.MonsterLevelUtil;
+import com.handy.monster.utils.MonsterPotionEffectUtil;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.event.EventHandler;

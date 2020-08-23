@@ -1,8 +1,8 @@
-package cn.handy.monster.utils;
+package com.handy.monster.utils;
 
-import cn.handy.monster.constant.EntityEquipmentTypeEnum;
-import cn.handy.monster.constant.MonsterConstants;
-import cn.handy.monster.entity.MonsterParam;
+import com.handy.monster.constant.EntityEquipmentTypeEnum;
+import com.handy.monster.constant.MonsterConstants;
+import com.handy.monster.entity.MonsterParam;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.EntityEquipment;
@@ -44,22 +44,22 @@ public class MonsterEquipmentUtil {
             }
 
             switch(param.getEquipmentTypeEnum()) {
-                case BOOTS:
+                case EntityEquipmentTypeEnum.BOOTS:
                     param.getEquipment().setBoots(itemStack);
                     break;
-                case CHEST_PLATE:
+                case EntityEquipmentTypeEnum.CHEST_PLATE:
                     param.getEquipment().setChestplate(itemStack);
                     break;
-                case HELMET:
+                case EntityEquipmentTypeEnum.HELMET:
                     param.getEquipment().setHelmet(itemStack);
                     break;
-                case LEGGINGS:
+                case EntityEquipmentTypeEnum.LEGGINGS:
                     param.getEquipment().setLeggings(itemStack);
                     break;
-                case ITEM_IN_MAIN_HAND_SWORD:
+                case EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_SWORD:
                     param.getEquipment().setItemInMainHand(itemStack);
                     break;
-                case ITEM_IN_MAIN_HAND_BOW:
+                case EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_BOW:
                     param.getEquipment().setItemInMainHand(itemStack);
             }
 
@@ -78,22 +78,22 @@ public class MonsterEquipmentUtil {
         param.setEquipmentTypeEnum(entityEquipmentTypeEnum);
         if (MonsterConstants.diamondLotteryList.randomColunmIndex() == 0) {
             switch(param.getEquipmentTypeEnum()) {
-                case BOOTS:
+                case EntityEquipmentTypeEnum.BOOTS:
                     param.setMaterial(Material.DIAMOND_BOOTS);
                     break;
-                case CHEST_PLATE:
+                case EntityEquipmentTypeEnum.CHEST_PLATE:
                     param.setMaterial(Material.DIAMOND_CHESTPLATE);
                     break;
-                case HELMET:
+                case EntityEquipmentTypeEnum.HELMET:
                     param.setMaterial(Material.DIAMOND_HELMET);
                     break;
-                case LEGGINGS:
+                case EntityEquipmentTypeEnum.LEGGINGS:
                     param.setMaterial(Material.DIAMOND_LEGGINGS);
                     break;
-                case ITEM_IN_MAIN_HAND_SWORD:
+                case EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_SWORD:
                     param.setMaterial(Material.DIAMOND_SWORD);
                     break;
-                case ITEM_IN_MAIN_HAND_BOW:
+                case EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_BOW:
                     param.setMaterial(Material.BOW);
             }
 
@@ -106,22 +106,22 @@ public class MonsterEquipmentUtil {
             }
         } else if (MonsterConstants.ironLotteryList.randomColunmIndex() == 0) {
             switch(param.getEquipmentTypeEnum()) {
-                case BOOTS:
+                case EntityEquipmentTypeEnum.BOOTS:
                     param.setMaterial(Material.IRON_BOOTS);
                     break;
-                case CHEST_PLATE:
+                case EntityEquipmentTypeEnum.CHEST_PLATE:
                     param.setMaterial(Material.IRON_CHESTPLATE);
                     break;
-                case HELMET:
+                case EntityEquipmentTypeEnum.HELMET:
                     param.setMaterial(Material.IRON_HELMET);
                     break;
-                case LEGGINGS:
+                case EntityEquipmentTypeEnum.LEGGINGS:
                     param.setMaterial(Material.IRON_LEGGINGS);
                     break;
-                case ITEM_IN_MAIN_HAND_SWORD:
+                case EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_SWORD:
                     param.setMaterial(Material.IRON_SWORD);
                     break;
-                case ITEM_IN_MAIN_HAND_BOW:
+                case EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_BOW:
                     param.setMaterial(Material.BOW);
             }
 
@@ -134,22 +134,22 @@ public class MonsterEquipmentUtil {
             }
         } else if (MonsterConstants.goldenLotteryList.randomColunmIndex() == 0) {
             switch(param.getEquipmentTypeEnum()) {
-                case BOOTS:
+                case EntityEquipmentTypeEnum.BOOTS:
                     param.setMaterial(Material.GOLDEN_BOOTS);
                     break;
-                case CHEST_PLATE:
+                case EntityEquipmentTypeEnum.CHEST_PLATE:
                     param.setMaterial(Material.GOLDEN_CHESTPLATE);
                     break;
-                case HELMET:
+                case EntityEquipmentTypeEnum.HELMET:
                     param.setMaterial(Material.GOLDEN_HELMET);
                     break;
-                case LEGGINGS:
+                case EntityEquipmentTypeEnum.LEGGINGS:
                     param.setMaterial(Material.GOLDEN_LEGGINGS);
                     break;
-                case ITEM_IN_MAIN_HAND_SWORD:
+                case EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_SWORD:
                     param.setMaterial(Material.GOLDEN_SWORD);
                     break;
-                case ITEM_IN_MAIN_HAND_BOW:
+                case EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_BOW:
                     param.setMaterial(Material.BOW);
             }
 
@@ -162,22 +162,22 @@ public class MonsterEquipmentUtil {
             }
         } else if (MonsterConstants.chainMailLotteryList.randomColunmIndex() == 0) {
             switch(param.getEquipmentTypeEnum()) {
-                case BOOTS:
+                case EntityEquipmentTypeEnum.BOOTS:
                     param.setMaterial(Material.CHAINMAIL_BOOTS);
                     break;
-                case CHEST_PLATE:
+                case EntityEquipmentTypeEnum.CHEST_PLATE:
                     param.setMaterial(Material.CHAINMAIL_CHESTPLATE);
                     break;
-                case HELMET:
+                case EntityEquipmentTypeEnum.HELMET:
                     param.setMaterial(Material.CHAINMAIL_HELMET);
                     break;
-                case LEGGINGS:
+                case EntityEquipmentTypeEnum.LEGGINGS:
                     param.setMaterial(Material.CHAINMAIL_LEGGINGS);
                     break;
-                case ITEM_IN_MAIN_HAND_SWORD:
+                case EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_SWORD:
                     param.setMaterial(Material.STONE_SWORD);
                     break;
-                case ITEM_IN_MAIN_HAND_BOW:
+                case EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_BOW:
                     param.setMaterial(Material.BOW);
             }
 
@@ -190,22 +190,22 @@ public class MonsterEquipmentUtil {
             }
         } else if (MonsterConstants.leatherLotteryList.randomColunmIndex() == 0) {
             switch(param.getEquipmentTypeEnum()) {
-                case BOOTS:
+                case EntityEquipmentTypeEnum.BOOTS:
                     param.setMaterial(Material.LEATHER_BOOTS);
                     break;
-                case CHEST_PLATE:
+                case EntityEquipmentTypeEnum.CHEST_PLATE:
                     param.setMaterial(Material.LEATHER_CHESTPLATE);
                     break;
-                case HELMET:
+                case EntityEquipmentTypeEnum.HELMET:
                     param.setMaterial(Material.LEATHER_HELMET);
                     break;
-                case LEGGINGS:
+                case EntityEquipmentTypeEnum.LEGGINGS:
                     param.setMaterial(Material.LEATHER_LEGGINGS);
                     break;
-                case ITEM_IN_MAIN_HAND_SWORD:
+                case EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_SWORD:
                     param.setMaterial(Material.WOODEN_SWORD);
                     break;
-                case ITEM_IN_MAIN_HAND_BOW:
+                case EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_BOW:
                     param.setMaterial(Material.BOW);
             }
 

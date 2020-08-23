@@ -1,9 +1,9 @@
-package cn.handy.monster.command;
+package com.handy.monster.command;
 
-import cn.handy.monster.Monster;
-import cn.handy.monster.constant.MonsterConstants;
-import cn.handy.monster.utils.BaseUtil;
-import cn.handy.monster.utils.ConfigUtil;
+import com.handy.monster.Monster;
+import com.handy.monster.constant.MonsterConstants;
+import com.handy.monster.utils.BaseUtil;
+import com.handy.monster.utils.ConfigUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
