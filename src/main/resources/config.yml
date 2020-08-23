@@ -1,0 +1,48 @@
+# 怪物钻石装备生成概率和死亡掉率
+Diamond: 0.2
+DiamondDropChance: 0.085
+
+# 怪物铁装备生成概率和死亡掉率
+Iron: 0.2
+IronDropChance: 0.085
+
+# 怪物金装备生成概率和死亡掉率
+Golden: 0.2
+GoldenDropChance: 0.085
+
+# 怪物锁链装备生成概率和死亡掉率
+ChainMail: 0.2
+ChainMailDropChance: 0.085
+
+# 怪物皮革装备生成概率和死亡掉率
+Leather: 0.2
+LeatherDropChance: 0.085
+
+# 装备随机附魔的概率和最大随机附魔数量
+Enchantment : 0.4
+EnchantmentNumber: 2
+
+#是否禁用刷怪笼生成的怪物加强(true禁用)
+spawner: true
+
+# 启用怪物等级规则的世界
+worlds:
+- "world"
+- "world_nether"
+- "world_the_end"
+# 怪物攻击玩家升级概率
+levelProbability: 0.1
+# 怪物升级中突变为BOSS的概率(变为精英后不会在升级)
+levelElite: 0.1
+# BOSS血量
+levelEliteHealth: 200
+# BOSS伤害
+levelEliteDamage: 20
+
+# 每级增加血量
+levelHealth: 1
+# 每级增加伤害
+levelDamage: 0.1
+
+monsterOnMsg: §a请注意:op开启了超强怪物,超强怪物即将来袭!!!!
+monsterOffMsg: §a请注意:超强怪物已经关闭,超强怪物不在刷新!!!!

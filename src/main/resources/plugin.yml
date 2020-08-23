@@ -1,0 +1,11 @@
+name: monster
+main: cn.handy.monster.Monster
+version: 2.0.0
+author: handy
+api-version: "1.13"
+commands:
+  monster:
+    description: 主命令
+    usage: 请使用 /monster
+    permission: handy.monster
+    permission-message: §c你没有该命令的权限！
