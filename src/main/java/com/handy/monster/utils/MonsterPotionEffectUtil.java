@@ -6,15 +6,22 @@ import org.bukkit.potion.PotionEffectType;
 
 import java.util.Random;
 
+/**
+ * @author hs
+ * @date 2020/4/4 20:10
+ */
 public class MonsterPotionEffectUtil {
-    public MonsterPotionEffectUtil() {
-    }
 
+    /**
+     * 药水效果
+     *
+     * @param entity 实体
+     */
     public static void getPotionEffect(LivingEntity entity) {
         Random random = new Random();
         int ranNum = random.nextInt(10);
         PotionEffect potionEffect;
-        switch(ranNum) {
+        switch (ranNum) {
             case 0:
                 potionEffect = new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 6000, 2);
                 entity.addPotionEffect(potionEffect);
@@ -72,7 +79,9 @@ public class MonsterPotionEffectUtil {
                 entity.addPotionEffect(potionEffect);
                 potionEffect = new PotionEffect(PotionEffectType.INVISIBILITY, 6000, 2);
                 entity.addPotionEffect(potionEffect);
+            default:
+                break;
         }
-
     }
+
 }

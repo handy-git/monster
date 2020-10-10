@@ -12,8 +12,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spigot-api.vesion>1.15.2-R0.1-SNAPSHOT</spigot-api.vesion>
-        <placeholderapi.version>2.10.5</placeholderapi.version>
+        <spigot-api.vesion>1.16.2-R0.1-SNAPSHOT</spigot-api.vesion>
         <lombok.version>1.18.8</lombok.version>
     </properties>
 
@@ -50,34 +49,6 @@
                     <source>1.8</source>
                     <target>1.8</target>
                 </configuration>
-            </plugin>
-            <!--将依赖的jar包打包到当前jar包-->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <version>3.2.2</version>
-                <configuration>
-                    <createDependencyReducedPom>false</createDependencyReducedPom>
-                    <artifactSet>
-                        <includes>
-                            <include>com.handy.lib:*:*:*</include>
-                        </includes>
-                    </artifactSet>
-                    <relocations>
-                        <relocation>
-                            <pattern>com.handy.lib</pattern>
-                            <shadedPattern>com.handy.playerfatigue.lib</shadedPattern>
-                        </relocation>
-                    </relocations>
-                </configuration>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>shade</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>

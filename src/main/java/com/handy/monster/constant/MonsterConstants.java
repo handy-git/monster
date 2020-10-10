@@ -1,10 +1,18 @@
 package com.handy.monster.constant;
 
 import com.handy.monster.utils.LotteryUtil;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 import java.util.List;
 import java.util.regex.Pattern;
 
+/**
+ * @author hs
+ * @date 2020/4/4 20:10
+ */
+@Getter
+@AllArgsConstructor
 public class MonsterConstants {
     public static LotteryUtil diamondLotteryList;
     public static LotteryUtil diamondDropChance;
@@ -30,6 +38,4 @@ public class MonsterConstants {
     public static final Pattern NUMERIC = Pattern.compile("^-?\\d+(\\.\\d+)?$");
     public static final Pattern NUMBER = Pattern.compile("[^0-9]");
 
-    public MonsterConstants() {
-    }
 }

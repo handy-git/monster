@@ -1,10 +1,13 @@
 package com.handy.monster.utils;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * @author hs
+ * @date 2020/4/4 20:10
+ */
 public class LotteryUtil {
     private List<LotteryUtil.ContinuousList> lotteryList = new ArrayList();
     private double maxElement;
@@ -13,13 +16,11 @@ public class LotteryUtil {
         if (list != null && list.size() != 0) {
             double minElement = 0.0D;
             LotteryUtil.ContinuousList continuousList = null;
-            Iterator var5 = list.iterator();
 
-            while(var5.hasNext()) {
-                Double d = (Double)var5.next();
+            for (Double d : list) {
                 minElement = this.maxElement;
                 this.maxElement += d;
-                continuousList = new LotteryUtil.ContinuousList(minElement, this.maxElement);
+                continuousList = new ContinuousList(minElement, this.maxElement);
                 this.lotteryList.add(continuousList);
             }
 
@@ -38,8 +39,8 @@ public class LotteryUtil {
 
         int size = this.lotteryList.size();
 
-        for(int i = 0; i < size; ++i) {
-            LotteryUtil.ContinuousList cl = (LotteryUtil.ContinuousList)this.lotteryList.get(i);
+        for (int i = 0; i < size; ++i) {
+            LotteryUtil.ContinuousList cl = (LotteryUtil.ContinuousList) this.lotteryList.get(i);
             if (cl.isContainKey(d)) {
                 index = i;
                 break;
@@ -65,9 +66,9 @@ public class LotteryUtil {
         this.lotteryList = lotteryList;
     }
 
-    public class ContinuousList {
-        private double minElement;
-        private double maxElement;
+    public static class ContinuousList {
+        private final double minElement;
+        private final double maxElement;
 
         public ContinuousList(double minElement, double maxElement) {
             if (minElement > maxElement) {
@@ -82,4 +83,5 @@ public class LotteryUtil {
             return element > this.minElement && element <= this.maxElement;
         }
     }
+
 }

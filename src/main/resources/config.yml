@@ -22,7 +22,7 @@ LeatherDropChance: 0.085
 Enchantment : 0.4
 EnchantmentNumber: 2
 
-#是否禁用刷怪笼生成的怪物加强(true禁用)
+# 是否禁用刷怪笼生成的怪物加强(true禁用)
 spawner: true
 
 # 启用怪物等级规则的世界

@@ -8,22 +8,26 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author hs
+ * @date 2020/4/4 20:10
+ */
 public class ConfigUtil {
     public static FileConfiguration config;
 
 
     public static void getConfig() {
-        if (!Monster.plugin.getDataFolder().exists()) {
-            Monster.plugin.getDataFolder().mkdir();
+        if (!Monster.getInstance().getDataFolder().exists()) {
+            Monster.getInstance().getDataFolder().mkdir();
         }
 
-        File configFile = new File(Monster.plugin.getDataFolder(), "config.yml");
+        File configFile = new File(Monster.getInstance().getDataFolder(), "config.yml");
         if (!configFile.exists()) {
-            Monster.plugin.saveDefaultConfig();
+            Monster.getInstance().saveDefaultConfig();
         }
 
-        Monster.plugin.reloadConfig();
-        config = Monster.plugin.getConfig();
+        Monster.getInstance().reloadConfig();
+        config = Monster.getInstance().getConfig();
         loadConfig();
     }
 
@@ -88,4 +92,5 @@ public class ConfigUtil {
         MonsterConstants.levelEliteHealth = config.getDouble("levelEliteHealth");
         MonsterConstants.levelEliteDamage = config.getDouble("levelEliteDamage");
     }
+
 }

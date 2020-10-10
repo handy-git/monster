@@ -1,86 +1,59 @@
 package com.handy.monster.listener;
 
-import com.handy.monster.constant.EntityEquipmentTypeEnum;
 import com.handy.monster.constant.MonsterConstants;
-import com.handy.monster.utils.MonsterEquipmentUtil;
-import com.handy.monster.utils.MonsterLevelUtil;
-import com.handy.monster.utils.MonsterPotionEffectUtil;
-import org.bukkit.entity.EntityType;
-import org.bukkit.entity.LivingEntity;
+import com.handy.monster.constant.VersionCheckEnum;
+import com.handy.monster.listener.spawn.ElevenCreatureSpawn;
+import com.handy.monster.listener.spawn.NineCreatureSpawn;
+import com.handy.monster.listener.spawn.SixteenCreatureSpawn;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.CreatureSpawnEvent;
-import org.bukkit.inventory.EntityEquipment;
 
+/**
+ * @author hs
+ * @date 2020/4/4 20:10
+ */
 public class MonsterListener implements Listener {
-    public MonsterListener() {
-    }
 
+    /**
+     * 当一个生物体在世界中出生时触发该事件.
+     * 如果该事件被取消了,那么这个生物将不会出生.
+     *
+     * @param event 事件.
+     */
     @EventHandler
     public void onCreatureSpawnEvent(CreatureSpawnEvent event) {
-        if (MonsterConstants.isUse) {
-            if (MonsterConstants.spawner) {
-                switch (event.getSpawnReason()) {
-                    case SPAWNER:
-                        return;
-                }
-            }
+        // 是否启用
+        if (!MonsterConstants.isUse) {
+            return;
+        }
 
-            LivingEntity entity = event.getEntity();
-            EntityType entityType = event.getEntityType();
-            EntityEquipment equipment = entity.getEquipment();
-            switch (entityType) {
-                case ZOMBIE:
-                    if (equipment != null) {
-                        MonsterEquipmentUtil.lotteryEquipment(equipment, EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_SWORD);
-                        MonsterLevelUtil.setLevel(entity, event.getLocation(), "僵尸");
-                    }
-                    break;
-                case ZOMBIE_VILLAGER:
-                    if (equipment != null) {
-                        MonsterEquipmentUtil.lotteryEquipment(equipment, EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_SWORD);
-                        MonsterLevelUtil.setLevel(entity, event.getLocation(), "僵尸村民");
-                    }
-                    break;
-                case HUSK:
-                    if (equipment != null) {
-                        MonsterEquipmentUtil.lotteryEquipment(equipment, EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_SWORD);
-                        MonsterLevelUtil.setLevel(entity, event.getLocation(), "尸壳");
-                    }
-                    break;
-                case PIG_ZOMBIE:
-                    if (equipment != null) {
-                        MonsterEquipmentUtil.lotteryEquipment(equipment, EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_SWORD);
-                        MonsterLevelUtil.setLevel(entity, event.getLocation(), "猪人");
-                    }
-                    break;
-                case SKELETON:
-                    if (equipment != null) {
-                        MonsterEquipmentUtil.lotteryEquipment(equipment, EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_BOW);
-                        MonsterLevelUtil.setLevel(entity, event.getLocation(), "骷髅");
-                    }
-                    break;
-                case WITHER_SKELETON:
-                    if (equipment != null) {
-                        MonsterEquipmentUtil.lotteryEquipment(equipment, EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_BOW);
-                        MonsterLevelUtil.setLevel(entity, event.getLocation(), "凋零骷髅");
-                    }
-                    break;
-                case STRAY:
-                    if (equipment != null) {
-                        MonsterEquipmentUtil.lotteryEquipment(equipment, EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_BOW);
-                        MonsterLevelUtil.setLevel(entity, event.getLocation(), "流浪者");
-                    }
-                    break;
-                case SPIDER:
-                    MonsterPotionEffectUtil.getPotionEffect(entity);
-                    MonsterLevelUtil.setLevel(entity, event.getLocation(), "蜘蛛");
-                    break;
-                case CAVE_SPIDER:
-                    MonsterPotionEffectUtil.getPotionEffect(entity);
-                    MonsterLevelUtil.setLevel(entity, event.getLocation(), "洞穴蜘蛛");
-            }
+        // 是否禁用刷怪笼生成的怪物加强(true禁用)
+        if (MonsterConstants.spawner && CreatureSpawnEvent.SpawnReason.SPAWNER.equals(event.getSpawnReason())) {
+            return;
+        }
 
+        // 不同版本不同怪物
+        switch (VersionCheckEnum.getEnum()) {
+            case V_1_7:
+            case V_1_8:
+            case V_1_9:
+            case V_1_10:
+                NineCreatureSpawn.setCreatureSpawn(event);
+                break;
+            case V_1_11:
+            case V_1_12:
+            case V_1_13:
+            case V_1_14:
+            case V_1_15:
+                ElevenCreatureSpawn.setCreatureSpawn(event);
+                break;
+            case V_1_16:
+                SixteenCreatureSpawn.setCreatureSpawn(event);
+                break;
+            default:
+                break;
         }
     }
+
 }

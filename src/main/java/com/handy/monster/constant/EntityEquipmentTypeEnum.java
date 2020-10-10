@@ -1,6 +1,18 @@
 package com.handy.monster.constant;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+/**
+ * @author hs
+ * @date 2020/4/4 20:10
+ */
+@Getter
+@AllArgsConstructor
 public enum EntityEquipmentTypeEnum {
+    /**
+     * 装备类型
+     */
     BOOTS(0, "鞋子"),
     CHEST_PLATE(1, "护腿"),
     HELMET(2, "上衣"),
@@ -8,20 +20,8 @@ public enum EntityEquipmentTypeEnum {
     ITEM_IN_MAIN_HAND_SWORD(4, "主手剑"),
     ITEM_IN_MAIN_HAND_BOW(5, "主手弓");
 
-    private Integer id;
-    private String name;
+    private final Integer id;
+    private final String name;
 
-    public Integer getId() {
-        return this.id;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    private EntityEquipmentTypeEnum(Integer id, String name) {
-        this.id = id;
-        this.name = name;
-    }
 }
 
