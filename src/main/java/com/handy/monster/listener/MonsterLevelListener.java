@@ -4,6 +4,7 @@ import com.handy.monster.constant.MonsterConstants;
 import com.handy.monster.utils.BaseUtil;
 import org.bukkit.ChatColor;
 import org.bukkit.attribute.Attribute;
+import org.bukkit.attribute.AttributeInstance;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -51,20 +52,26 @@ public class MonsterLevelListener implements Listener {
             return;
         }
 
+        AttributeInstance healthAttribute = livingEntity.getAttribute(Attribute.GENERIC_MAX_HEALTH);
+        AttributeInstance damageAttribute = livingEntity.getAttribute(Attribute.GENERIC_ATTACK_DAMAGE);
+        if (healthAttribute == null || damageAttribute == null) {
+            return;
+        }
+
+        // 升级
         if (MonsterConstants.levelElite.randomColunmIndex() == 0) {
-            livingEntity.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(MonsterConstants.levelEliteHealth);
-            livingEntity.getAttribute(Attribute.GENERIC_ATTACK_DAMAGE).setBaseValue(MonsterConstants.levelEliteDamage);
+            healthAttribute.setBaseValue(MonsterConstants.levelEliteHealth);
+            damageAttribute.setBaseValue(MonsterConstants.levelEliteDamage);
             livingEntity.setHealth(MonsterConstants.levelEliteHealth);
             livingEntity.setCustomName(ChatColor.AQUA + "[BOSS]" + ChatColor.WHITE + BaseUtil.getCustomName(livingEntity.getCustomName()));
             player.sendMessage("绝处逢生:" + livingEntity.getCustomName() + "攻击了你,它进化为了BOSS...");
         } else {
-            livingEntity.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(livingEntity.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue() + MonsterConstants.levelHealth);
-            livingEntity.getAttribute(Attribute.GENERIC_ATTACK_DAMAGE).setBaseValue(livingEntity.getAttribute(Attribute.GENERIC_ATTACK_DAMAGE).getValue() + MonsterConstants.levelDamage);
-            livingEntity.setHealth(livingEntity.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue());
+            healthAttribute.setBaseValue(healthAttribute.getValue() + MonsterConstants.levelHealth);
+            damageAttribute.setBaseValue(damageAttribute.getValue() + MonsterConstants.levelDamage);
+            livingEntity.setHealth(healthAttribute.getValue());
             livingEntity.setCustomName(ChatColor.AQUA + "[" + (level + 1) + "级]" + ChatColor.WHITE + BaseUtil.getCustomName(livingEntity.getCustomName()));
             player.sendMessage("绝处逢生:" + livingEntity.getCustomName() + "攻击了你,它升级了...");
         }
-
     }
 
     /**

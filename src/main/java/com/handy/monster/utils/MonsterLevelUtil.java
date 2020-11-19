@@ -3,7 +3,9 @@ package com.handy.monster.utils;
 import com.handy.monster.constant.MonsterConstants;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
+import org.bukkit.World;
 import org.bukkit.attribute.Attribute;
+import org.bukkit.attribute.AttributeInstance;
 import org.bukkit.entity.LivingEntity;
 
 import java.util.Random;
@@ -22,14 +24,24 @@ public class MonsterLevelUtil {
      * @param name     名称
      */
     public static void setLevel(LivingEntity entity, Location location, String name) {
-        if (MonsterConstants.worlds != null && MonsterConstants.worlds.contains(location.getWorld().getName())) {
+        World world = location.getWorld();
+        if (world == null) {
+            return;
+        }
+        AttributeInstance healthAttribute = entity.getAttribute(Attribute.GENERIC_MAX_HEALTH);
+        AttributeInstance damageAttribute = entity.getAttribute(Attribute.GENERIC_ATTACK_DAMAGE);
+        if (healthAttribute == null || damageAttribute == null) {
+            return;
+        }
+
+        if (MonsterConstants.worlds != null && MonsterConstants.worlds.contains(world.getName())) {
             int level = (new Random()).nextInt(10);
-            entity.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(entity.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue() + (double) level * MonsterConstants.levelHealth);
-            entity.getAttribute(Attribute.GENERIC_ATTACK_DAMAGE).setBaseValue(entity.getAttribute(Attribute.GENERIC_ATTACK_DAMAGE).getValue() + (double) level * MonsterConstants.levelDamage);
-            entity.setHealth(entity.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue());
+            healthAttribute.setBaseValue(healthAttribute.getValue() + (double) level * MonsterConstants.levelHealth);
+            damageAttribute.setBaseValue(damageAttribute.getValue() + (double) level * MonsterConstants.levelDamage);
+            entity.setHealth(healthAttribute.getValue());
             entity.setCustomName(ChatColor.AQUA + "[" + level + "级]" + ChatColor.WHITE + name);
             entity.setCustomNameVisible(true);
         }
-
     }
+
 }
