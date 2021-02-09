@@ -8,7 +8,7 @@ DiamondDropChance: 0.005
 
 # 怪物铁装备生成概率和死亡掉率
 Iron: 0.2
-IronDropChance: 0.010
+IronDropChance: 0.01
 
 # 怪物金装备生成概率和死亡掉率
 Golden: 0.2
@@ -16,7 +16,7 @@ GoldenDropChance: 0.015
 
 # 怪物锁链装备生成概率和死亡掉率
 ChainMail: 0.2
-ChainMailDropChance: 0.020
+ChainMailDropChance: 0.02
 
 # 怪物皮革装备生成概率和死亡掉率
 Leather: 0.2
@@ -43,6 +43,9 @@ levelElite: 0.1
 levelEliteHealth: 500
 # BOSS伤害
 levelEliteDamage: 20
+
+# 玩家攻击怪物,怪物瞬移的概率
+teleport: 0.01
 
 # 每级增加血量
 levelHealth: 1

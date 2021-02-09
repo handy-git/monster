@@ -34,14 +34,12 @@ public class MonsterLevelUtil {
             return;
         }
 
-        if (MonsterConstants.worlds != null && MonsterConstants.worlds.contains(world.getName())) {
-            int level = (new Random()).nextInt(10);
-            healthAttribute.setBaseValue(healthAttribute.getValue() + (double) level * MonsterConstants.levelHealth);
-            damageAttribute.setBaseValue(damageAttribute.getValue() + (double) level * MonsterConstants.levelDamage);
-            entity.setHealth(healthAttribute.getValue());
-            entity.setCustomName(ChatColor.AQUA + "[" + level + "级]" + ChatColor.WHITE + name);
-            entity.setCustomNameVisible(true);
-        }
+        int level = (new Random()).nextInt(10);
+        healthAttribute.setBaseValue(healthAttribute.getValue() + (double) level * MonsterConstants.levelHealth);
+        damageAttribute.setBaseValue(damageAttribute.getValue() + (double) level * MonsterConstants.levelDamage);
+        entity.setHealth(healthAttribute.getValue());
+        entity.setCustomName(ChatColor.AQUA + "[" + level + "级]" + ChatColor.WHITE + name);
+        entity.setCustomNameVisible(true);
     }
 
 }

@@ -129,6 +129,12 @@ public class ConfigUtil {
         levelEliteList.add(1.0D - config.getDouble("levelElite"));
         MonsterConstants.levelElite = new LotteryUtil(levelEliteList);
 
+        // 瞬移概率
+        List<Double> teleportList = new ArrayList<>();
+        teleportList.add(config.getDouble("teleport"));
+        teleportList.add(1.0D - config.getDouble("teleport"));
+        MonsterConstants.teleport = new LotteryUtil(teleportList);
+
         MonsterConstants.levelHealth = config.getDouble("levelHealth");
         MonsterConstants.levelDamage = config.getDouble("levelDamage");
         MonsterConstants.levelEliteHealth = config.getDouble("levelEliteHealth");

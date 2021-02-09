@@ -38,6 +38,8 @@ public class MonsterConstants {
     public static LotteryUtil levelProbability;
     public static LotteryUtil levelElite;
 
+    public static LotteryUtil teleport;
+
     public static Double levelHealth = 0.0D;
     public static Double levelDamage = 0.0D;
     public static Double levelEliteHealth = 1.0D;

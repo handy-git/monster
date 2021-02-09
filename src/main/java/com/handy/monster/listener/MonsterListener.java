@@ -28,6 +28,11 @@ public class MonsterListener implements Listener {
             return;
         }
 
+        // 判断世界是否开启
+        if (MonsterConstants.worlds == null || !MonsterConstants.worlds.contains(event.getEntity().getWorld().getName())) {
+            return;
+        }
+
         // 是否禁用刷怪笼生成的怪物加强(true禁用)
         if (MonsterConstants.spawner && CreatureSpawnEvent.SpawnReason.SPAWNER.equals(event.getSpawnReason())) {
             return;
