@@ -320,7 +320,9 @@ public class MonsterEquipmentUtil {
         setEquipment(getMonsterParam(equipment, EntityEquipmentTypeEnum.CHEST_PLATE));
         setEquipment(getMonsterParam(equipment, EntityEquipmentTypeEnum.LEGGINGS));
         setEquipment(getMonsterParam(equipment, EntityEquipmentTypeEnum.BOOTS));
-        setEquipment(getMonsterParam(equipment, weapon));
+        if (weapon != null){
+            setEquipment(getMonsterParam(equipment, weapon));
+        }
     }
 
 }

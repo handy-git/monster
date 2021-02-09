@@ -45,10 +45,28 @@ public class SixteenCreatureSpawn {
                     MonsterLevelUtil.setLevel(entity, event.getLocation(), "尸壳");
                 }
                 break;
+            case DROWNED:
+                if (equipment != null) {
+                    MonsterEquipmentUtil.lotteryEquipment(equipment, null);
+                    MonsterLevelUtil.setLevel(entity, event.getLocation(), "溺尸");
+                }
+                break;
             case PIGLIN:
                 if (equipment != null) {
                     MonsterEquipmentUtil.lotteryEquipment(equipment, EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_SWORD);
                     MonsterLevelUtil.setLevel(entity, event.getLocation(), "猪灵");
+                }
+                break;
+            case ZOMBIFIED_PIGLIN:
+                if (equipment != null) {
+                    MonsterEquipmentUtil.lotteryEquipment(equipment, EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_SWORD);
+                    MonsterLevelUtil.setLevel(entity, event.getLocation(), "僵尸猪灵");
+                }
+                break;
+            case PIGLIN_BRUTE:
+                if (equipment != null) {
+                    MonsterEquipmentUtil.lotteryEquipment(equipment, null);
+                    MonsterLevelUtil.setLevel(entity, event.getLocation(), "猪灵蛮兵");
                 }
                 break;
             case SKELETON:
