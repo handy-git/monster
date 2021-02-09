@@ -57,30 +57,52 @@ public class MonsterEquipmentUtil {
         switch (param.getEquipmentTypeEnum()) {
             case HELMET:
                 param.getEquipment().setHelmet(itemStack);
+                // 设置头盔掉落率
+                if (param.getDropChance() != null && param.getDropChance()) {
+                    param.getEquipment().setHelmetDropChance(1.0F);
+                } else {
+                    param.getEquipment().setHelmetDropChance(0.0F);
+                }
                 break;
             case CHEST_PLATE:
                 param.getEquipment().setChestplate(itemStack);
+                // 设置胸甲掉落率
+                if (param.getDropChance() != null && param.getDropChance()) {
+                    param.getEquipment().setChestplateDropChance(1.0F);
+                } else {
+                    param.getEquipment().setChestplateDropChance(0.0F);
+                }
                 break;
             case LEGGINGS:
                 param.getEquipment().setLeggings(itemStack);
+                // 设置裤子掉落率
+                if (param.getDropChance() != null && param.getDropChance()) {
+                    param.getEquipment().setLeggingsDropChance(1.0F);
+                } else {
+                    param.getEquipment().setLeggingsDropChance(0.0F);
+                }
                 break;
             case BOOTS:
                 param.getEquipment().setBoots(itemStack);
+                // 设置鞋子掉落率
+                if (param.getDropChance() != null && param.getDropChance()) {
+                    param.getEquipment().setBootsDropChance(1.0F);
+                } else {
+                    param.getEquipment().setBootsDropChance(0.0F);
+                }
                 break;
             case ITEM_IN_MAIN_HAND_SWORD:
             case ITEM_IN_MAIN_HAND_BOW:
                 param.getEquipment().setItemInHand(itemStack);
+                // 设置武器掉落率
+                if (param.getDropChance() != null && param.getDropChance()) {
+                    param.getEquipment().setItemInHandDropChance(1.0F);
+                } else {
+                    param.getEquipment().setItemInHandDropChance(0.0F);
+                }
             default:
                 break;
         }
-
-        // 设置掉落率
-        if (param.getDropChance() != null && param.getDropChance()) {
-            param.getEquipment().setBootsDropChance(1.0F);
-        } else {
-            param.getEquipment().setBootsDropChance(0.0F);
-        }
-
     }
 
     /**
@@ -96,7 +118,7 @@ public class MonsterEquipmentUtil {
         param.setEquipmentTypeEnum(entityEquipmentTypeEnum);
         String material;
         // 合金装备
-        if (MonsterConstants.netheriteLotteryList.randomColunmIndex() == 0) {
+        if (MonsterConstants.netheriteLotteryList.randomIndex() == 0) {
             switch (param.getEquipmentTypeEnum()) {
                 case BOOTS:
                     param.setMaterial(Material.NETHERITE_BOOTS);
@@ -119,15 +141,15 @@ public class MonsterEquipmentUtil {
                     break;
             }
 
-            if (MonsterConstants.enchantment.randomColunmIndex() == 0) {
+            if (MonsterConstants.enchantment.randomIndex() == 0) {
                 param.setIsEnchantment(true);
             }
 
-            if (MonsterConstants.netheriteDropChance.randomColunmIndex() == 0) {
+            if (MonsterConstants.netheriteDropChance.randomIndex() == 0) {
                 param.setDropChance(true);
             }
             // 钻石装备
-        } else if (MonsterConstants.diamondLotteryList.randomColunmIndex() == 0) {
+        } else if (MonsterConstants.diamondLotteryList.randomIndex() == 0) {
             switch (param.getEquipmentTypeEnum()) {
                 case BOOTS:
                     param.setMaterial(Material.DIAMOND_BOOTS);
@@ -150,15 +172,15 @@ public class MonsterEquipmentUtil {
                     break;
             }
 
-            if (MonsterConstants.enchantment.randomColunmIndex() == 0) {
+            if (MonsterConstants.enchantment.randomIndex() == 0) {
                 param.setIsEnchantment(true);
             }
 
-            if (MonsterConstants.diamondDropChance.randomColunmIndex() == 0) {
+            if (MonsterConstants.diamondDropChance.randomIndex() == 0) {
                 param.setDropChance(true);
             }
             // 铁装备
-        } else if (MonsterConstants.ironLotteryList.randomColunmIndex() == 0) {
+        } else if (MonsterConstants.ironLotteryList.randomIndex() == 0) {
             switch (param.getEquipmentTypeEnum()) {
                 case BOOTS:
                     param.setMaterial(Material.IRON_BOOTS);
@@ -181,15 +203,15 @@ public class MonsterEquipmentUtil {
                     break;
             }
 
-            if (MonsterConstants.enchantment.randomColunmIndex() == 0) {
+            if (MonsterConstants.enchantment.randomIndex() == 0) {
                 param.setIsEnchantment(true);
             }
 
-            if (MonsterConstants.ironDropChance.randomColunmIndex() == 0) {
+            if (MonsterConstants.ironDropChance.randomIndex() == 0) {
                 param.setDropChance(true);
             }
             // 金装备
-        } else if (MonsterConstants.goldenLotteryList.randomColunmIndex() == 0) {
+        } else if (MonsterConstants.goldenLotteryList.randomIndex() == 0) {
             switch (param.getEquipmentTypeEnum()) {
                 case BOOTS:
                     material = "GOLD_BOOTS";
@@ -232,15 +254,15 @@ public class MonsterEquipmentUtil {
                     break;
             }
 
-            if (MonsterConstants.enchantment.randomColunmIndex() == 0) {
+            if (MonsterConstants.enchantment.randomIndex() == 0) {
                 param.setIsEnchantment(true);
             }
 
-            if (MonsterConstants.goldenDropChance.randomColunmIndex() == 0) {
+            if (MonsterConstants.goldenDropChance.randomIndex() == 0) {
                 param.setDropChance(true);
             }
             // 锁链装备
-        } else if (MonsterConstants.chainMailLotteryList.randomColunmIndex() == 0) {
+        } else if (MonsterConstants.chainMailLotteryList.randomIndex() == 0) {
             switch (param.getEquipmentTypeEnum()) {
                 case BOOTS:
                     param.setMaterial(Material.CHAINMAIL_BOOTS);
@@ -263,15 +285,15 @@ public class MonsterEquipmentUtil {
                     break;
             }
 
-            if (MonsterConstants.enchantment.randomColunmIndex() == 0) {
+            if (MonsterConstants.enchantment.randomIndex() == 0) {
                 param.setIsEnchantment(true);
             }
 
-            if (MonsterConstants.chainMailDropChance.randomColunmIndex() == 0) {
+            if (MonsterConstants.chainMailDropChance.randomIndex() == 0) {
                 param.setDropChance(true);
             }
             // 皮革装备
-        } else if (MonsterConstants.leatherLotteryList.randomColunmIndex() == 0) {
+        } else if (MonsterConstants.leatherLotteryList.randomIndex() == 0) {
             switch (param.getEquipmentTypeEnum()) {
                 case BOOTS:
                     param.setMaterial(Material.LEATHER_BOOTS);
@@ -298,11 +320,11 @@ public class MonsterEquipmentUtil {
                     break;
             }
 
-            if (MonsterConstants.enchantment.randomColunmIndex() == 0) {
+            if (MonsterConstants.enchantment.randomIndex() == 0) {
                 param.setIsEnchantment(true);
             }
 
-            if (MonsterConstants.leatherDropChance.randomColunmIndex() == 0) {
+            if (MonsterConstants.leatherDropChance.randomIndex() == 0) {
                 param.setDropChance(true);
             }
         }
@@ -320,7 +342,7 @@ public class MonsterEquipmentUtil {
         setEquipment(getMonsterParam(equipment, EntityEquipmentTypeEnum.CHEST_PLATE));
         setEquipment(getMonsterParam(equipment, EntityEquipmentTypeEnum.LEGGINGS));
         setEquipment(getMonsterParam(equipment, EntityEquipmentTypeEnum.BOOTS));
-        if (weapon != null){
+        if (weapon != null) {
             setEquipment(getMonsterParam(equipment, weapon));
         }
     }

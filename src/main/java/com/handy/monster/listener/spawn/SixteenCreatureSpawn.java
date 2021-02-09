@@ -4,6 +4,7 @@ import com.handy.monster.constant.EntityEquipmentTypeEnum;
 import com.handy.monster.utils.MonsterEquipmentUtil;
 import com.handy.monster.utils.MonsterLevelUtil;
 import com.handy.monster.utils.MonsterPotionEffectUtil;
+import org.apache.commons.lang.StringUtils;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.event.entity.CreatureSpawnEvent;
@@ -26,6 +27,10 @@ public class SixteenCreatureSpawn {
         LivingEntity entity = event.getEntity();
         EntityType entityType = event.getEntityType();
         EntityEquipment equipment = entity.getEquipment();
+
+        if (StringUtils.isNotBlank(entity.getCustomName())) {
+            return;
+        }
         switch (entityType) {
             case ZOMBIE:
                 if (equipment != null) {

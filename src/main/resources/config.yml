@@ -1,6 +1,6 @@
 # 怪物合金装备生成概率和死亡掉率
 netherite: 0.2
-netheriteDropChance: 0
+netheriteDropChance: 0.001
 
 # 怪物钻石装备生成概率和死亡掉率
 Diamond: 0.2
@@ -8,19 +8,19 @@ DiamondDropChance: 0.005
 
 # 怪物铁装备生成概率和死亡掉率
 Iron: 0.2
-IronDropChance: 0.015
+IronDropChance: 0.010
 
 # 怪物金装备生成概率和死亡掉率
 Golden: 0.2
-GoldenDropChance: 0.025
+GoldenDropChance: 0.015
 
 # 怪物锁链装备生成概率和死亡掉率
 ChainMail: 0.2
-ChainMailDropChance: 0.035
+ChainMailDropChance: 0.020
 
 # 怪物皮革装备生成概率和死亡掉率
 Leather: 0.2
-LeatherDropChance: 0.045
+LeatherDropChance: 0.025
 
 # 装备随机附魔的概率和最大随机附魔数量
 Enchantment : 0.4
@@ -34,14 +34,15 @@ worlds:
 - "world"
 - "world_nether"
 - "world_the_end"
+
 # 怪物攻击玩家升级概率
 levelProbability: 0.1
 # 怪物升级中突变为BOSS的概率(变为精英后不会在升级)
 levelElite: 0.1
 # BOSS血量
-levelEliteHealth: 2000
+levelEliteHealth: 500
 # BOSS伤害
-levelEliteDamage: 40
+levelEliteDamage: 20
 
 # 每级增加血量
 levelHealth: 1

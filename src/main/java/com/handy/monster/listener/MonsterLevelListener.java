@@ -26,7 +26,7 @@ public class MonsterLevelListener implements Listener {
     @EventHandler
     public void onEntityDamageByEntity(EntityDamageByEntityEvent event) {
         // 随机没随机到0
-        if (MonsterConstants.levelProbability.randomColunmIndex() != 0) {
+        if (MonsterConstants.levelProbability.randomIndex() != 0) {
             return;
         }
         // 不是怪物造成伤害
@@ -59,7 +59,7 @@ public class MonsterLevelListener implements Listener {
         }
 
         // 升级
-        if (MonsterConstants.levelElite.randomColunmIndex() == 0) {
+        if (MonsterConstants.levelElite.randomIndex() == 0) {
             healthAttribute.setBaseValue(MonsterConstants.levelEliteHealth);
             damageAttribute.setBaseValue(MonsterConstants.levelEliteDamage);
             livingEntity.setHealth(MonsterConstants.levelEliteHealth);

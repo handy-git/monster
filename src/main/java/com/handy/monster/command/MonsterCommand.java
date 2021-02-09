@@ -65,7 +65,7 @@ public class MonsterCommand implements CommandExecutor {
                         String monsterOffMsg = ConfigUtil.config.getString("monsterOffMsg");
                         Bukkit.broadcastMessage(monsterOffMsg != null ? monsterOffMsg : "");
                     }
-                }).runTaskLater(Monster.getInstance(), (Integer.parseInt(args[1]) * 20));
+                }).runTaskLater(Monster.getInstance(), (Integer.parseInt(args[1]) * 20L));
             } else {
                 sender.sendMessage(ChatColor.AQUA + "子参数错误,格式/monster on或/monster off或/monster on [秒]");
             }
