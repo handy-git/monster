@@ -95,8 +95,39 @@ public class MonsterEquipmentUtil {
         param.setEquipment(equipment);
         param.setEquipmentTypeEnum(entityEquipmentTypeEnum);
         String material;
-        // 钻石装备
-        if (MonsterConstants.diamondLotteryList.randomColunmIndex() == 0) {
+        // 合金装备
+        if (MonsterConstants.netheriteLotteryList.randomColunmIndex() == 0) {
+            switch (param.getEquipmentTypeEnum()) {
+                case BOOTS:
+                    param.setMaterial(Material.NETHERITE_BOOTS);
+                    break;
+                case CHEST_PLATE:
+                    param.setMaterial(Material.NETHERITE_CHESTPLATE);
+                    break;
+                case HELMET:
+                    param.setMaterial(Material.NETHERITE_HELMET);
+                    break;
+                case LEGGINGS:
+                    param.setMaterial(Material.NETHERITE_LEGGINGS);
+                    break;
+                case ITEM_IN_MAIN_HAND_SWORD:
+                    param.setMaterial(Material.NETHERITE_SWORD);
+                    break;
+                case ITEM_IN_MAIN_HAND_BOW:
+                    param.setMaterial(Material.BOW);
+                default:
+                    break;
+            }
+
+            if (MonsterConstants.enchantment.randomColunmIndex() == 0) {
+                param.setIsEnchantment(true);
+            }
+
+            if (MonsterConstants.netheriteDropChance.randomColunmIndex() == 0) {
+                param.setDropChance(true);
+            }
+            // 钻石装备
+        } else if (MonsterConstants.diamondLotteryList.randomColunmIndex() == 0) {
             switch (param.getEquipmentTypeEnum()) {
                 case BOOTS:
                     param.setMaterial(Material.DIAMOND_BOOTS);

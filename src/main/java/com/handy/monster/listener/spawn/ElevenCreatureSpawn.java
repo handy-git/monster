@@ -46,12 +46,12 @@ public class ElevenCreatureSpawn {
                     MonsterLevelUtil.setLevel(entity, event.getLocation(), "尸壳");
                 }
                 break;
-            case PIG_ZOMBIE:
+           /* case PIG_ZOMBIE:
                 if (equipment != null) {
                     MonsterEquipmentUtil.lotteryEquipment(equipment, EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_SWORD);
                     MonsterLevelUtil.setLevel(entity, event.getLocation(), "猪人");
                 }
-                break;
+                break;*/
             case SKELETON:
                 if (equipment != null) {
                     MonsterEquipmentUtil.lotteryEquipment(equipment, EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_BOW);

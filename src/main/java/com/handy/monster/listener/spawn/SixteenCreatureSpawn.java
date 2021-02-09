@@ -45,6 +45,12 @@ public class SixteenCreatureSpawn {
                     MonsterLevelUtil.setLevel(entity, event.getLocation(), "尸壳");
                 }
                 break;
+            case PIGLIN:
+                if (equipment != null) {
+                    MonsterEquipmentUtil.lotteryEquipment(equipment, EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_SWORD);
+                    MonsterLevelUtil.setLevel(entity, event.getLocation(), "猪灵");
+                }
+                break;
             case SKELETON:
                 if (equipment != null) {
                     MonsterEquipmentUtil.lotteryEquipment(equipment, EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_BOW);

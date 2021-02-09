@@ -14,6 +14,8 @@ import java.util.regex.Pattern;
 @Getter
 @AllArgsConstructor
 public class MonsterConstants {
+    public static LotteryUtil netheriteLotteryList;
+    public static LotteryUtil netheriteDropChance;
     public static LotteryUtil diamondLotteryList;
     public static LotteryUtil diamondDropChance;
     public static LotteryUtil ironLotteryList;
