@@ -117,8 +117,9 @@ public class MonsterEquipmentUtil {
         param.setEquipment(equipment);
         param.setEquipmentTypeEnum(entityEquipmentTypeEnum);
         String material;
+
         // 合金装备
-        if (MonsterConstants.netheriteLotteryList.randomIndex() == 0) {
+        if (VersionCheckEnum.getEnum().getVersionId() >= VersionCheckEnum.V_1_16.getVersionId() && MonsterConstants.netheriteLotteryList.randomIndex() == 0) {
             switch (param.getEquipmentTypeEnum()) {
                 case BOOTS:
                     param.setMaterial(Material.NETHERITE_BOOTS);

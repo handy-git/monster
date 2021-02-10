@@ -1,9 +1,9 @@
-# 怪物合金装备生成概率和死亡掉率
-netherite: 0.2
+# 怪物合金装备生成概率和死亡掉率 1.16有效
+netherite: 0.1
 netheriteDropChance: 0.001
 
 # 怪物钻石装备生成概率和死亡掉率
-Diamond: 0.2
+Diamond: 0.1
 DiamondDropChance: 0.005
 
 # 怪物铁装备生成概率和死亡掉率
@@ -26,9 +26,6 @@ LeatherDropChance: 0.025
 Enchantment : 0.4
 EnchantmentNumber: 2
 
-# 是否禁用刷怪笼生成的怪物加强(true禁用)
-spawner: true
-
 # 启用怪物等级规则的世界
 worlds:
 - "world"
@@ -37,20 +34,37 @@ worlds:
 
 # 怪物攻击玩家升级概率
 levelProbability: 0.1
-# 怪物升级中突变为BOSS的概率(变为精英后不会在升级)
+
+# 怪物升级中突变为BOSS的概率(变为BOSS后不会在升级)
 levelElite: 0.1
 # BOSS血量
 levelEliteHealth: 500
 # BOSS伤害
 levelEliteDamage: 20
-
-# 玩家攻击怪物,怪物瞬移的概率
-teleport: 0.01
+# BOSS护甲
+levelEliteArmor: 5
+# BOSS攻击速度
+levelEliteattackSpeed: 0.2
+# BOSS移动速度
+levelElitemovementSpeed: 0.2
+# BOSS击退抗性
+levelEliteKnockBackResistance: 0.5
 
 # 每级增加血量
 levelHealth: 1
 # 每级增加伤害
 levelDamage: 0.1
+# 每级增加护甲
+levelArmor: 0.1
+# 每级增加攻击速度
+levelAttackSpeed: 0.1
+# 每级增加移动速度
+levelMovementSpeed: 0.1
+# 每级增加击退抗性
+levelKnockBackResistance: 0.1
+
+# 玩家攻击怪物,怪物瞬移的概率
+teleport: 0.01
 
 monsterOnMsg: §a请注意:op开启了超强怪物,超强怪物即将来袭!!!!
 monsterOffMsg: §a请注意:超强怪物已经关闭,超强怪物不在刷新!!!!

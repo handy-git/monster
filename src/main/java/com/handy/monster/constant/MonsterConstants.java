@@ -31,7 +31,6 @@ public class MonsterConstants {
     public static Integer enchantmentNumber = 0;
 
     public static Boolean isUse = true;
-    public static Boolean spawner = true;
 
     public static List<String> worlds;
 
@@ -42,8 +41,17 @@ public class MonsterConstants {
 
     public static Double levelHealth = 0.0D;
     public static Double levelDamage = 0.0D;
+    public static Double levelArmor = 0.0D;
+    public static Double levelAttackSpeed = 0.0D;
+    public static Double levelMovementSpeed = 0.0D;
+    public static Double levelKnockBackResistance = 0.0D;
+
     public static Double levelEliteHealth = 1.0D;
     public static Double levelEliteDamage = 1.0D;
+    public static Double levelEliteArmor = 0.0D;
+    public static Double levelEliteAttackSpeed = 0.0D;
+    public static Double levelEliteMovementSpeed = 0.0D;
+    public static Double levelEliteKnockBackResistance = 0.0D;
 
     public static final Pattern NUMERIC = Pattern.compile("^-?\\d+(\\.\\d+)?$");
     public static final Pattern NUMBER = Pattern.compile("[^0-9]");

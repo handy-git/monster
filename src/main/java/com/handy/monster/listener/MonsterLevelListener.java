@@ -35,6 +35,7 @@ public class MonsterLevelListener implements Listener {
         if (MonsterConstants.levelProbability.randomIndex() != 0) {
             return;
         }
+
         // 判断攻击的是怪物
         if (!(event.getDamager() instanceof LivingEntity)) {
             return;
@@ -53,6 +54,7 @@ public class MonsterLevelListener implements Listener {
 
         // 获取当前等级
         int level = BaseUtil.isNumber(livingEntity.getCustomName());
+
         // boss不在继续升级
         if (level == -1) {
             return;
@@ -60,21 +62,54 @@ public class MonsterLevelListener implements Listener {
 
         AttributeInstance healthAttribute = livingEntity.getAttribute(Attribute.GENERIC_MAX_HEALTH);
         AttributeInstance damageAttribute = livingEntity.getAttribute(Attribute.GENERIC_ATTACK_DAMAGE);
-        if (healthAttribute == null || damageAttribute == null) {
-            return;
-        }
+        AttributeInstance armorAttribute = livingEntity.getAttribute(Attribute.GENERIC_ARMOR);
+        AttributeInstance attackSpeedAttribute = livingEntity.getAttribute(Attribute.GENERIC_ATTACK_SPEED);
+        AttributeInstance knockBackResistanceAttribute = livingEntity.getAttribute(Attribute.GENERIC_KNOCKBACK_RESISTANCE);
+        AttributeInstance movementSpeedAttribute = livingEntity.getAttribute(Attribute.GENERIC_MOVEMENT_SPEED);
 
         // 升级
         if (MonsterConstants.levelElite.randomIndex() == 0) {
-            healthAttribute.setBaseValue(MonsterConstants.levelEliteHealth);
-            damageAttribute.setBaseValue(MonsterConstants.levelEliteDamage);
+            if (healthAttribute != null) {
+                healthAttribute.setBaseValue(MonsterConstants.levelEliteHealth);
+            }
+            if (damageAttribute != null) {
+                damageAttribute.setBaseValue(MonsterConstants.levelEliteDamage);
+            }
+            if (armorAttribute != null) {
+                armorAttribute.setBaseValue(MonsterConstants.levelEliteArmor);
+            }
+            if (attackSpeedAttribute != null) {
+                attackSpeedAttribute.setBaseValue(MonsterConstants.levelEliteAttackSpeed);
+            }
+            if (knockBackResistanceAttribute != null) {
+                knockBackResistanceAttribute.setBaseValue(MonsterConstants.levelEliteKnockBackResistance);
+            }
+            if (movementSpeedAttribute != null) {
+                movementSpeedAttribute.setBaseValue(MonsterConstants.levelEliteMovementSpeed);
+            }
             livingEntity.setHealth(MonsterConstants.levelEliteHealth);
             livingEntity.setCustomName(ChatColor.AQUA + "[BOSS]" + ChatColor.WHITE + BaseUtil.getCustomName(livingEntity.getCustomName()));
             player.sendMessage("绝处逢生:" + livingEntity.getCustomName() + "攻击了你,它进化为了BOSS...");
         } else {
-            healthAttribute.setBaseValue(healthAttribute.getValue() + MonsterConstants.levelHealth);
-            damageAttribute.setBaseValue(damageAttribute.getValue() + MonsterConstants.levelDamage);
-            livingEntity.setHealth(healthAttribute.getValue());
+            if (healthAttribute != null) {
+                healthAttribute.setBaseValue(healthAttribute.getValue() + MonsterConstants.levelHealth);
+                livingEntity.setHealth(healthAttribute.getValue());
+            }
+            if (damageAttribute != null) {
+                damageAttribute.setBaseValue(damageAttribute.getValue() + MonsterConstants.levelDamage);
+            }
+            if (armorAttribute != null) {
+                armorAttribute.setBaseValue(armorAttribute.getValue() + (double) level * MonsterConstants.levelArmor);
+            }
+            if (attackSpeedAttribute != null) {
+                attackSpeedAttribute.setBaseValue(attackSpeedAttribute.getValue() + (double) level * MonsterConstants.levelAttackSpeed);
+            }
+            if (knockBackResistanceAttribute != null) {
+                knockBackResistanceAttribute.setBaseValue(knockBackResistanceAttribute.getValue() + (double) level * MonsterConstants.levelKnockBackResistance);
+            }
+            if (movementSpeedAttribute != null) {
+                movementSpeedAttribute.setBaseValue(movementSpeedAttribute.getValue() + (double) level * MonsterConstants.levelMovementSpeed);
+            }
             livingEntity.setCustomName(ChatColor.AQUA + "[" + (level + 1) + "级]" + ChatColor.WHITE + BaseUtil.getCustomName(livingEntity.getCustomName()));
             player.sendMessage("绝处逢生:" + livingEntity.getCustomName() + "攻击了你,它升级了...");
         }
@@ -92,11 +127,6 @@ public class MonsterLevelListener implements Listener {
         if (MonsterConstants.worlds == null || !MonsterConstants.worlds.contains(event.getDamager().getWorld().getName())) {
             return;
         }
-
-        // 随机没随机到0
-        if (MonsterConstants.teleport.randomIndex() != 0) {
-            return;
-        }
         // 判断攻击的是玩家
         if (!(event.getDamager() instanceof Player)) {
             return;
@@ -111,6 +141,11 @@ public class MonsterLevelListener implements Listener {
 
         // 获取生物或方块的自定义名称，若无则返回null.
         if (livingEntity.getCustomName() == null) {
+            return;
+        }
+
+        // 随机没随机到0
+        if (MonsterConstants.teleport.randomIndex() != 0) {
             return;
         }
 

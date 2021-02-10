@@ -4,7 +4,6 @@ import com.handy.monster.constant.EntityEquipmentTypeEnum;
 import com.handy.monster.utils.MonsterEquipmentUtil;
 import com.handy.monster.utils.MonsterLevelUtil;
 import com.handy.monster.utils.MonsterPotionEffectUtil;
-import org.apache.commons.lang.StringUtils;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.event.entity.CreatureSpawnEvent;
@@ -28,79 +27,58 @@ public class SixteenCreatureSpawn {
         EntityType entityType = event.getEntityType();
         EntityEquipment equipment = entity.getEquipment();
 
-        if (StringUtils.isNotBlank(entity.getCustomName())) {
+        String name = entityType.getName();
+        if (name == null || "".equals(name)) {
             return;
         }
-        switch (entityType) {
-            case ZOMBIE:
-                if (equipment != null) {
-                    MonsterEquipmentUtil.lotteryEquipment(equipment, EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_SWORD);
-                    MonsterLevelUtil.setLevel(entity, event.getLocation(), "僵尸");
-                }
-                break;
-            case ZOMBIE_VILLAGER:
-                if (equipment != null) {
-                    MonsterEquipmentUtil.lotteryEquipment(equipment, EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_SWORD);
-                    MonsterLevelUtil.setLevel(entity, event.getLocation(), "僵尸村民");
-                }
-                break;
-            case HUSK:
-                if (equipment != null) {
-                    MonsterEquipmentUtil.lotteryEquipment(equipment, EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_SWORD);
-                    MonsterLevelUtil.setLevel(entity, event.getLocation(), "尸壳");
-                }
-                break;
-            case DROWNED:
-                if (equipment != null) {
-                    MonsterEquipmentUtil.lotteryEquipment(equipment, null);
-                    MonsterLevelUtil.setLevel(entity, event.getLocation(), "溺尸");
-                }
-                break;
-            case PIGLIN:
-                if (equipment != null) {
-                    MonsterEquipmentUtil.lotteryEquipment(equipment, EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_SWORD);
-                    MonsterLevelUtil.setLevel(entity, event.getLocation(), "猪灵");
-                }
-                break;
-            case ZOMBIFIED_PIGLIN:
-                if (equipment != null) {
-                    MonsterEquipmentUtil.lotteryEquipment(equipment, EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_SWORD);
-                    MonsterLevelUtil.setLevel(entity, event.getLocation(), "僵尸猪灵");
-                }
-                break;
-            case PIGLIN_BRUTE:
-                if (equipment != null) {
-                    MonsterEquipmentUtil.lotteryEquipment(equipment, null);
-                    MonsterLevelUtil.setLevel(entity, event.getLocation(), "猪灵蛮兵");
-                }
-                break;
-            case SKELETON:
-                if (equipment != null) {
-                    MonsterEquipmentUtil.lotteryEquipment(equipment, EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_BOW);
-                    MonsterLevelUtil.setLevel(entity, event.getLocation(), "骷髅");
-                }
-                break;
-            case WITHER_SKELETON:
-                if (equipment != null) {
-                    MonsterEquipmentUtil.lotteryEquipment(equipment, EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_BOW);
-                    MonsterLevelUtil.setLevel(entity, event.getLocation(), "凋零骷髅");
-                }
-                break;
-            case STRAY:
-                if (equipment != null) {
-                    MonsterEquipmentUtil.lotteryEquipment(equipment, EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_BOW);
-                    MonsterLevelUtil.setLevel(entity, event.getLocation(), "流浪者");
-                }
-                break;
-            case SPIDER:
-                MonsterPotionEffectUtil.getPotionEffect(entity);
-                MonsterLevelUtil.setLevel(entity, event.getLocation(), "蜘蛛");
-                break;
-            case CAVE_SPIDER:
-                MonsterPotionEffectUtil.getPotionEffect(entity);
-                MonsterLevelUtil.setLevel(entity, event.getLocation(), "洞穴蜘蛛");
-            default:
-                break;
+
+        if (name.equals(EntityType.valueOf("ZOMBIE").getName())) {
+            MonsterEquipmentUtil.lotteryEquipment(equipment, EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_SWORD);
+            MonsterLevelUtil.setLevel(entity, "僵尸");
+        }
+        if (name.equals(EntityType.valueOf("ZOMBIE_VILLAGER").getName())) {
+            MonsterEquipmentUtil.lotteryEquipment(equipment, EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_SWORD);
+            MonsterLevelUtil.setLevel(entity, "僵尸村民");
+        }
+        if (name.equals(EntityType.valueOf("HUSK").getName())) {
+            MonsterEquipmentUtil.lotteryEquipment(equipment, EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_SWORD);
+            MonsterLevelUtil.setLevel(entity, "尸壳");
+        }
+        if (name.equals(EntityType.valueOf("DROWNED").getName())) {
+            MonsterEquipmentUtil.lotteryEquipment(equipment, EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_SWORD);
+            MonsterLevelUtil.setLevel(entity, "溺尸");
+        }
+        if (name.equals(EntityType.valueOf("PIGLIN").getName())) {
+            MonsterEquipmentUtil.lotteryEquipment(equipment, EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_SWORD);
+            MonsterLevelUtil.setLevel(entity, "猪灵");
+        }
+        if (name.equals(EntityType.valueOf("ZOMBIFIED_PIGLIN").getName())) {
+            MonsterEquipmentUtil.lotteryEquipment(equipment, EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_SWORD);
+            MonsterLevelUtil.setLevel(entity, "僵尸猪灵");
+        }
+        if (name.equals(EntityType.valueOf("PIGLIN_BRUTE").getName())) {
+            MonsterEquipmentUtil.lotteryEquipment(equipment, null);
+            MonsterLevelUtil.setLevel(entity, "猪灵蛮兵");
+        }
+        if (name.equals(EntityType.valueOf("SKELETON").getName())) {
+            MonsterEquipmentUtil.lotteryEquipment(equipment, EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_BOW);
+            MonsterLevelUtil.setLevel(entity, "骷髅");
+        }
+        if (name.equals(EntityType.valueOf("WITHER_SKELETON").getName())) {
+            MonsterEquipmentUtil.lotteryEquipment(equipment, EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_BOW);
+            MonsterLevelUtil.setLevel(entity, "凋零骷髅");
+        }
+        if (name.equals(EntityType.valueOf("STRAY").getName())) {
+            MonsterEquipmentUtil.lotteryEquipment(equipment, EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_BOW);
+            MonsterLevelUtil.setLevel(entity, "流浪者");
+        }
+        if (name.equals(EntityType.valueOf("SPIDER").getName())) {
+            MonsterPotionEffectUtil.getPotionEffect(entity);
+            MonsterLevelUtil.setLevel(entity, "蜘蛛");
+        }
+        if (name.equals(EntityType.valueOf("CAVE_SPIDER").getName())) {
+            MonsterPotionEffectUtil.getPotionEffect(entity);
+            MonsterLevelUtil.setLevel(entity, "洞穴蜘蛛");
         }
     }
 
