@@ -134,17 +134,9 @@ public class ConfigUtil {
 
         MonsterConstants.levelHealth = config.getDouble("levelHealth");
         MonsterConstants.levelDamage = config.getDouble("levelDamage");
-        MonsterConstants.levelArmor = config.getDouble("levelArmor");
-        MonsterConstants.levelAttackSpeed = config.getDouble("levelAttackSpeed");
-        MonsterConstants.levelMovementSpeed = config.getDouble("levelMovementSpeed");
-        MonsterConstants.levelKnockBackResistance = config.getDouble("levelKnockBackResistance");
 
         MonsterConstants.levelEliteHealth = config.getDouble("levelEliteHealth");
         MonsterConstants.levelEliteDamage = config.getDouble("levelEliteDamage");
-        MonsterConstants.levelEliteArmor = config.getDouble("levelEliteArmor");
-        MonsterConstants.levelEliteAttackSpeed = config.getDouble("levelEliteAttackSpeed");
-        MonsterConstants.levelEliteMovementSpeed = config.getDouble("levelEliteMovementSpeed");
-        MonsterConstants.levelEliteKnockBackResistance = config.getDouble("levelEliteKnockBackResistance");
     }
 
 }

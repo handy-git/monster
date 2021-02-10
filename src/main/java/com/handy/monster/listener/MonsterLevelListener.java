@@ -62,54 +62,21 @@ public class MonsterLevelListener implements Listener {
 
         AttributeInstance healthAttribute = livingEntity.getAttribute(Attribute.GENERIC_MAX_HEALTH);
         AttributeInstance damageAttribute = livingEntity.getAttribute(Attribute.GENERIC_ATTACK_DAMAGE);
-        AttributeInstance armorAttribute = livingEntity.getAttribute(Attribute.GENERIC_ARMOR);
-        AttributeInstance attackSpeedAttribute = livingEntity.getAttribute(Attribute.GENERIC_ATTACK_SPEED);
-        AttributeInstance knockBackResistanceAttribute = livingEntity.getAttribute(Attribute.GENERIC_KNOCKBACK_RESISTANCE);
-        AttributeInstance movementSpeedAttribute = livingEntity.getAttribute(Attribute.GENERIC_MOVEMENT_SPEED);
+        if (healthAttribute == null || damageAttribute == null) {
+            return;
+        }
 
         // 升级
         if (MonsterConstants.levelElite.randomIndex() == 0) {
-            if (healthAttribute != null) {
-                healthAttribute.setBaseValue(MonsterConstants.levelEliteHealth);
-            }
-            if (damageAttribute != null) {
-                damageAttribute.setBaseValue(MonsterConstants.levelEliteDamage);
-            }
-            if (armorAttribute != null) {
-                armorAttribute.setBaseValue(MonsterConstants.levelEliteArmor);
-            }
-            if (attackSpeedAttribute != null) {
-                attackSpeedAttribute.setBaseValue(MonsterConstants.levelEliteAttackSpeed);
-            }
-            if (knockBackResistanceAttribute != null) {
-                knockBackResistanceAttribute.setBaseValue(MonsterConstants.levelEliteKnockBackResistance);
-            }
-            if (movementSpeedAttribute != null) {
-                movementSpeedAttribute.setBaseValue(MonsterConstants.levelEliteMovementSpeed);
-            }
+            healthAttribute.setBaseValue(MonsterConstants.levelEliteHealth);
+            damageAttribute.setBaseValue(MonsterConstants.levelEliteDamage);
             livingEntity.setHealth(MonsterConstants.levelEliteHealth);
             livingEntity.setCustomName(ChatColor.AQUA + "[BOSS]" + ChatColor.WHITE + BaseUtil.getCustomName(livingEntity.getCustomName()));
             player.sendMessage("绝处逢生:" + livingEntity.getCustomName() + "攻击了你,它进化为了BOSS...");
         } else {
-            if (healthAttribute != null) {
-                healthAttribute.setBaseValue(healthAttribute.getValue() + MonsterConstants.levelHealth);
-                livingEntity.setHealth(healthAttribute.getValue());
-            }
-            if (damageAttribute != null) {
-                damageAttribute.setBaseValue(damageAttribute.getValue() + MonsterConstants.levelDamage);
-            }
-            if (armorAttribute != null) {
-                armorAttribute.setBaseValue(armorAttribute.getValue() + (double) level * MonsterConstants.levelArmor);
-            }
-            if (attackSpeedAttribute != null) {
-                attackSpeedAttribute.setBaseValue(attackSpeedAttribute.getValue() + (double) level * MonsterConstants.levelAttackSpeed);
-            }
-            if (knockBackResistanceAttribute != null) {
-                knockBackResistanceAttribute.setBaseValue(knockBackResistanceAttribute.getValue() + (double) level * MonsterConstants.levelKnockBackResistance);
-            }
-            if (movementSpeedAttribute != null) {
-                movementSpeedAttribute.setBaseValue(movementSpeedAttribute.getValue() + (double) level * MonsterConstants.levelMovementSpeed);
-            }
+            healthAttribute.setBaseValue(healthAttribute.getValue() + MonsterConstants.levelHealth);
+            damageAttribute.setBaseValue(damageAttribute.getValue() + MonsterConstants.levelDamage);
+            livingEntity.setHealth(healthAttribute.getValue());
             livingEntity.setCustomName(ChatColor.AQUA + "[" + (level + 1) + "级]" + ChatColor.WHITE + BaseUtil.getCustomName(livingEntity.getCustomName()));
             player.sendMessage("绝处逢生:" + livingEntity.getCustomName() + "攻击了你,它升级了...");
         }

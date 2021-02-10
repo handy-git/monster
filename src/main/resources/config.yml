@@ -35,33 +35,17 @@ worlds:
 # 怪物攻击玩家升级概率
 levelProbability: 0.1
 
+# 每级增加血量
+levelHealth: 1
+# 每级增加伤害
+levelDamage: 0.1
+
 # 怪物升级中突变为BOSS的概率(变为BOSS后不会在升级)
 levelElite: 0.1
 # BOSS血量
 levelEliteHealth: 500
 # BOSS伤害
 levelEliteDamage: 20
-# BOSS护甲
-levelEliteArmor: 5
-# BOSS攻击速度
-levelEliteattackSpeed: 0.2
-# BOSS移动速度
-levelElitemovementSpeed: 0.2
-# BOSS击退抗性
-levelEliteKnockBackResistance: 0.5
-
-# 每级增加血量
-levelHealth: 1
-# 每级增加伤害
-levelDamage: 0.1
-# 每级增加护甲
-levelArmor: 0.1
-# 每级增加攻击速度
-levelAttackSpeed: 0.1
-# 每级增加移动速度
-levelMovementSpeed: 0.1
-# 每级增加击退抗性
-levelKnockBackResistance: 0.1
 
 # 玩家攻击怪物,怪物瞬移的概率
 teleport: 0.01
