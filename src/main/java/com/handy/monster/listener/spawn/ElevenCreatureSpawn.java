@@ -44,10 +44,6 @@ public class ElevenCreatureSpawn {
             MonsterEquipmentUtil.lotteryEquipment(equipment, EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_SWORD);
             MonsterLevelUtil.setLevel(entity, "尸壳");
         }
-        if (name.equals(EntityType.valueOf("DROWNED").getName())) {
-            MonsterEquipmentUtil.lotteryEquipment(equipment, EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_SWORD);
-            MonsterLevelUtil.setLevel(entity, "溺尸");
-        }
         if (name.equals(EntityType.valueOf("PIG_ZOMBIE").getName())) {
             MonsterEquipmentUtil.lotteryEquipment(equipment, EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_SWORD);
             MonsterLevelUtil.setLevel(entity, "猪人");

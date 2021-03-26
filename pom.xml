@@ -7,7 +7,7 @@
     <groupId>com.handy.monster</groupId>
     <artifactId>Monster</artifactId>
     <name>Monster</name>
-    <version>3.0.0</version>
+    <version>3.0.1</version>
     <description>一个有点好用的怪物插件!</description>
 
     <properties>

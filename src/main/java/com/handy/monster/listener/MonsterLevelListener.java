@@ -10,7 +10,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.event.entity.EntityDeathEvent;
 
 /**
  * @author hs
@@ -123,37 +122,6 @@ public class MonsterLevelListener implements Listener {
         }
         livingEntity.teleport(player);
         player.sendMessage("愤怒出击:" + livingEntity.getCustomName() + "被攻击烦了,它瞬移过来有也要打死你...");
-    }
-
-    /**
-     * 当任何一个实体死亡时触发本事件
-     *
-     * @param event 事件
-     */
-    @EventHandler
-    public void onEntityDeathEvent(EntityDeathEvent event) {
-        // 判断世界是否开启
-        if (MonsterConstants.worlds == null || !MonsterConstants.worlds.contains(event.getEntity().getWorld().getName())) {
-            return;
-        }
-
-        LivingEntity livingEntity = event.getEntity();
-        // 获取生物或方块的自定义名称，若无则返回null.
-        if (livingEntity.getCustomName() == null) {
-            return;
-        }
-        // 获取当前等级
-        int level = BaseUtil.isNumber(livingEntity.getCustomName());
-
-        // 掉落经验增加
-        if (level != -1) {
-            event.setDroppedExp(event.getDroppedExp() + level);
-        }
-
-        if (livingEntity.getCustomName().contains("BOSS")) {
-            event.setDroppedExp(event.getDroppedExp() + 100);
-        }
-
     }
 
 }
