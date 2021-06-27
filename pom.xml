@@ -12,14 +12,14 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spigot-api.vesion>1.16.2-R0.1-SNAPSHOT</spigot-api.vesion>
+        <spigot-api.vesion>1.17-R0.1-SNAPSHOT</spigot-api.vesion>
         <lombok.version>1.18.18</lombok.version>
     </properties>
 
     <repositories>
         <repository>
-            <id>handy-minecraft</id>
-            <url>http://maven.ljxmc.top/repository/handy-minecraft/</url>
+            <id>minecraft</id>
+            <url>http://109.166.36.56:42376/repository/minecraft/</url>
         </repository>
     </repositories>
 
