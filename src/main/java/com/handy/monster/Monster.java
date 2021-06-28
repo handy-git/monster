@@ -1,10 +1,9 @@
 package com.handy.monster;
 
 import com.handy.monster.command.MonsterCommand;
-import com.handy.monster.listener.MonsterLevelListener;
-import com.handy.monster.listener.MonsterListener;
+import com.handy.monster.listener.ListenerManage;
 import com.handy.monster.utils.ConfigUtil;
-import org.bukkit.Bukkit;
+import org.bukkit.command.PluginCommand;
 import org.bukkit.plugin.java.JavaPlugin;
 
 /**
@@ -17,20 +16,21 @@ public final class Monster extends JavaPlugin {
     @Override
     public void onEnable() {
         instance = this;
-
         ConfigUtil.getConfig();
-
-        Bukkit.getPluginCommand("monster").setExecutor(new MonsterCommand());
-
-        Bukkit.getPluginManager().registerEvents(new MonsterListener(), this);
-        Bukkit.getPluginManager().registerEvents(new MonsterLevelListener(), this);
-
-        this.getLogger().info("Monster插件开启");
+        // 加载命令
+        PluginCommand monsterPluginCommand = this.getCommand("monster");
+        if (monsterPluginCommand != null) {
+            monsterPluginCommand.setExecutor(new MonsterCommand());
+            monsterPluginCommand.setTabCompleter(new MonsterCommand());
+        }
+        // 加载监听器
+        ListenerManage.enableListener(this);
+        this.getLogger().info("Monster插件成功开启");
     }
 
     @Override
     public void onDisable() {
-        this.getLogger().info("Monster插件关闭");
+        this.getLogger().info("Monster插件成功关闭");
     }
 
     public static Monster getInstance() {

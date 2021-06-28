@@ -1,5 +1,6 @@
 package com.handy.monster.utils;
 
+import com.handy.lib.util.LotteryUtil;
 import com.handy.monster.Monster;
 import com.handy.monster.constant.MonsterConstants;
 import org.bukkit.configuration.file.FileConfiguration;

@@ -1,7 +1,9 @@
 package com.handy.monster.listener;
 
+import com.handy.lib.util.BaseUtil;
+import com.handy.lib.util.ProbabilityUtil;
 import com.handy.monster.constant.MonsterConstants;
-import com.handy.monster.utils.BaseUtil;
+import com.handy.monster.utils.ConfigUtil;
 import org.bukkit.ChatColor;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeInstance;
@@ -34,7 +36,6 @@ public class MonsterLevelListener implements Listener {
         if (MonsterConstants.levelProbability.randomIndex() != 0) {
             return;
         }
-
         // 判断攻击的是怪物
         if (!(event.getDamager() instanceof LivingEntity)) {
             return;
@@ -52,7 +53,7 @@ public class MonsterLevelListener implements Listener {
         }
 
         // 获取当前等级
-        int level = BaseUtil.isNumber(livingEntity.getCustomName());
+        int level = BaseUtil.getSeparatorCustomNameNumber(livingEntity.getCustomName());
 
         // boss不在继续升级
         if (level == -1) {
@@ -70,13 +71,13 @@ public class MonsterLevelListener implements Listener {
             healthAttribute.setBaseValue(MonsterConstants.levelEliteHealth);
             damageAttribute.setBaseValue(MonsterConstants.levelEliteDamage);
             livingEntity.setHealth(MonsterConstants.levelEliteHealth);
-            livingEntity.setCustomName(ChatColor.AQUA + "[BOSS]" + ChatColor.WHITE + BaseUtil.getCustomName(livingEntity.getCustomName()));
+            livingEntity.setCustomName(ChatColor.AQUA + "[BOSS]" + ChatColor.WHITE + BaseUtil.getSeparatorCustomName(livingEntity.getCustomName(), "]"));
             player.sendMessage("绝处逢生:" + livingEntity.getCustomName() + "攻击了你,它进化为了BOSS...");
         } else {
             healthAttribute.setBaseValue(healthAttribute.getValue() + MonsterConstants.levelHealth);
             damageAttribute.setBaseValue(damageAttribute.getValue() + MonsterConstants.levelDamage);
             livingEntity.setHealth(healthAttribute.getValue());
-            livingEntity.setCustomName(ChatColor.AQUA + "[" + (level + 1) + "级]" + ChatColor.WHITE + BaseUtil.getCustomName(livingEntity.getCustomName()));
+            livingEntity.setCustomName(ChatColor.AQUA + "[" + (level + 1) + "级]" + ChatColor.WHITE + BaseUtil.getSeparatorCustomName(livingEntity.getCustomName(), "]"));
             player.sendMessage("绝处逢生:" + livingEntity.getCustomName() + "攻击了你,它升级了...");
         }
     }
@@ -116,7 +117,7 @@ public class MonsterLevelListener implements Listener {
         }
 
         // 获取当前等级
-        int level = BaseUtil.isNumber(livingEntity.getCustomName());
+        int level = BaseUtil.getSeparatorCustomNameNumber(livingEntity.getCustomName());
         if (level == -1) {
             return;
         }

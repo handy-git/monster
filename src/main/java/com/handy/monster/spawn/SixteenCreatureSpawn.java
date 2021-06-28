@@ -1,4 +1,4 @@
-package com.handy.monster.listener.spawn;
+package com.handy.monster.spawn;
 
 import com.handy.monster.constant.EntityEquipmentTypeEnum;
 import com.handy.monster.utils.MonsterEquipmentUtil;

@@ -1,8 +1,8 @@
 package com.handy.monster.utils;
 
+import com.handy.lib.constants.VersionCheckEnum;
 import com.handy.monster.constant.EntityEquipmentTypeEnum;
 import com.handy.monster.constant.MonsterConstants;
-import com.handy.monster.constant.VersionCheckEnum;
 import com.handy.monster.entity.MonsterParam;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;

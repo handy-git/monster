@@ -1,11 +1,10 @@
 package com.handy.monster.constant;
 
-import com.handy.monster.utils.LotteryUtil;
+import com.handy.lib.util.LotteryUtil;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 import java.util.List;
-import java.util.regex.Pattern;
 
 /**
  * @author hs
@@ -44,8 +43,5 @@ public class MonsterConstants {
 
     public static Double levelEliteHealth = 1.0D;
     public static Double levelEliteDamage = 1.0D;
-
-    public static final Pattern NUMERIC = Pattern.compile("^-?\\d+(\\.\\d+)?$");
-    public static final Pattern NUMBER = Pattern.compile("[^0-9]");
 
 }

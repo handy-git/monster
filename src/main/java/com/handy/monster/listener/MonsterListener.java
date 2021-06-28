@@ -1,10 +1,10 @@
 package com.handy.monster.listener;
 
+import com.handy.lib.constants.VersionCheckEnum;
 import com.handy.monster.constant.MonsterConstants;
-import com.handy.monster.constant.VersionCheckEnum;
-import com.handy.monster.listener.spawn.ElevenCreatureSpawn;
-import com.handy.monster.listener.spawn.NineCreatureSpawn;
-import com.handy.monster.listener.spawn.SixteenCreatureSpawn;
+import com.handy.monster.spawn.ElevenCreatureSpawn;
+import com.handy.monster.spawn.NineCreatureSpawn;
+import com.handy.monster.spawn.SixteenCreatureSpawn;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.CreatureSpawnEvent;
@@ -54,6 +54,7 @@ public class MonsterListener implements Listener {
                 ElevenCreatureSpawn.setCreatureSpawn(event);
                 break;
             case V_1_16:
+            case V_1_17:
                 SixteenCreatureSpawn.setCreatureSpawn(event);
                 break;
             default:

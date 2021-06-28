@@ -1,11 +1,26 @@
 name: monster
 main: com.handy.monster.Monster
-version: 3.0.1
+version: 3.0.2
 author: handy
 api-version: "1.13"
+description: 一个有点好用的怪物插件
 commands:
   monster:
     description: 主命令
     usage: 请使用 /monster
-    permission: handy.monster
-    permission-message: §c你没有该命令的权限！
+permissions:
+  monster.*:
+    description: §a怪物插件
+    children:
+      monster.reload: true
+      monster.on: true
+      monster.off: true
+  monster.reload:
+    description: §a重载
+    default: op
+  monster.on:
+    description: §a开启
+    default: op
+  monster.off:
+    description: §a关闭
+    default: op
