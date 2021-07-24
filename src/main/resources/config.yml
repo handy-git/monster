@@ -55,3 +55,6 @@ monsterOffMsg: §a请注意:超强怪物已经关闭,超强怪物不在刷新!!!
 
 # 生成类型, add 新增生物  replace 替换原版生物
 spawn: add
+
+# 生成速度
+time: 60

@@ -38,7 +38,7 @@ public class TaskUtil {
                     setMonsterSpawn();
                 }
             }
-        }.runTaskTimerAsynchronously(Monster.getInstance(), 60, 20 * 180);
+        }.runTaskTimer(Monster.getInstance(), 60, 20L * ConfigUtil.config.getLong("time"));
     }
 
     /**
@@ -74,6 +74,7 @@ public class TaskUtil {
                 }
                 for (int j = 0; j < i; j++) {
                     Location randomLocation = ConfigUtil.getRandomLocation(player, -128, 128, 0);
+                    player.sendMessage("位置x:" + randomLocation.getX() + "y: " + randomLocation.getY() + "z: " + randomLocation.getZ());
                     String key = keyList.get(new Random().nextInt(entityTypeMap.size()));
                     // 获取怪物
                     EntityType entitytype = EntityType.valueOf(key);
