@@ -1,4 +1,4 @@
-package com.handy.monster.utils;
+package com.handy.monster.util;
 
 import com.handy.lib.util.LotteryUtil;
 import com.handy.monster.Monster;
@@ -122,23 +122,11 @@ public class ConfigUtil {
         // 支持世界
         MonsterConstants.worlds = config.getStringList("worlds");
 
-        // 升级boos概率
-        List<Double> levelProbabilityList = new ArrayList<>();
-        levelProbabilityList.add(config.getDouble("levelProbability"));
-        levelProbabilityList.add(1.0D - config.getDouble("levelProbability"));
-        MonsterConstants.levelProbability = new LotteryUtil(levelProbabilityList);
-
         // 升级概率
         List<Double> levelEliteList = new ArrayList<>();
         levelEliteList.add(config.getDouble("levelElite"));
         levelEliteList.add(1.0D - config.getDouble("levelElite"));
         MonsterConstants.levelElite = new LotteryUtil(levelEliteList);
-
-        // 瞬移概率
-        List<Double> teleportList = new ArrayList<>();
-        teleportList.add(config.getDouble("teleport"));
-        teleportList.add(1.0D - config.getDouble("teleport"));
-        MonsterConstants.teleport = new LotteryUtil(teleportList);
 
         MonsterConstants.levelHealth = config.getDouble("levelHealth");
         MonsterConstants.levelDamage = config.getDouble("levelDamage");

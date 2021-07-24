@@ -1,9 +1,9 @@
 package com.handy.monster.spawn;
 
 import com.handy.monster.constant.EntityEquipmentTypeEnum;
-import com.handy.monster.utils.MonsterEquipmentUtil;
-import com.handy.monster.utils.MonsterLevelUtil;
-import com.handy.monster.utils.MonsterPotionEffectUtil;
+import com.handy.monster.util.MonsterEquipmentUtil;
+import com.handy.monster.util.MonsterLevelUtil;
+import com.handy.monster.util.MonsterPotionEffectUtil;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.event.entity.CreatureSpawnEvent;

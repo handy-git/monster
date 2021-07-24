@@ -6,7 +6,7 @@ import com.handy.lib.command.HandyCommandFactory;
 import com.handy.lib.util.BaseUtil;
 import com.handy.monster.Monster;
 import com.handy.monster.constant.MonsterConstants;
-import com.handy.monster.utils.ConfigUtil;
+import com.handy.monster.util.ConfigUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;

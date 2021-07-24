@@ -1,4 +1,4 @@
-package com.handy.monster.utils;
+package com.handy.monster.util;
 
 import com.handy.lib.constants.VersionCheckEnum;
 import com.handy.monster.constant.EntityEquipmentTypeEnum;

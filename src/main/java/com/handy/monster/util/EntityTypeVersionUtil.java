@@ -1,4 +1,4 @@
-package com.handy.monster.utils;
+package com.handy.monster.util;
 
 import com.handy.lib.constants.VersionCheckEnum;
 
@@ -10,24 +10,24 @@ import java.util.Map;
  *
  * @author handy
  **/
-public class EntityTypeVersion {
+public class EntityTypeVersionUtil {
     /**
      * 怪物存储 版本: 怪物类型: 怪物名称
      */
     private static final Map<Integer, Map<String, String>> ENTITY_TYPE_MAP = new HashMap<>();
 
-    private EntityTypeVersion() {
+    private EntityTypeVersionUtil() {
     }
 
     private static class SingletonHolder {
-        private static final EntityTypeVersion INSTANCE = new EntityTypeVersion();
+        private static final EntityTypeVersionUtil INSTANCE = new EntityTypeVersionUtil();
     }
 
-    public static EntityTypeVersion getInstance() {
+    public static EntityTypeVersionUtil getInstance() {
         if (ENTITY_TYPE_MAP.size() == 0) {
             init();
         }
-        return EntityTypeVersion.SingletonHolder.INSTANCE;
+        return EntityTypeVersionUtil.SingletonHolder.INSTANCE;
     }
 
     /**

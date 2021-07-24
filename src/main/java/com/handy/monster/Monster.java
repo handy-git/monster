@@ -2,8 +2,8 @@ package com.handy.monster;
 
 import com.handy.lib.InitApi;
 import com.handy.lib.api.MessageApi;
-import com.handy.monster.utils.ConfigUtil;
-import com.handy.monster.utils.TaskUtil;
+import com.handy.monster.util.ConfigUtil;
+import com.handy.monster.util.TaskUtil;
 import org.bukkit.plugin.java.JavaPlugin;
 
 /**

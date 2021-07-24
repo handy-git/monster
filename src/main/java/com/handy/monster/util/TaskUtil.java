@@ -1,4 +1,4 @@
-package com.handy.monster.utils;
+package com.handy.monster.util;
 
 import com.handy.lib.constants.VersionCheckEnum;
 import com.handy.lib.util.BaseUtil;
@@ -54,7 +54,7 @@ public class TaskUtil {
             if (!MonsterConstants.isUse) {
                 return;
             }
-            Map<String, String> entityTypeMap = EntityTypeVersion.getInstance().getEntityTypeMap(VersionCheckEnum.getEnum().getVersionId());
+            Map<String, String> entityTypeMap = EntityTypeVersionUtil.getInstance().getEntityTypeMap(VersionCheckEnum.getEnum().getVersionId());
             if (entityTypeMap == null) {
                 return;
             }

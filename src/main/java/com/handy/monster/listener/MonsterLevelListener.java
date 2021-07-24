@@ -2,10 +2,10 @@ package com.handy.monster.listener;
 
 import com.handy.lib.annotation.HandyListener;
 import com.handy.lib.util.BaseUtil;
+import com.handy.lib.util.ProbabilityUtil;
 import com.handy.monster.constant.MonsterConstants;
-import org.bukkit.ChatColor;
-import org.bukkit.attribute.Attribute;
-import org.bukkit.attribute.AttributeInstance;
+import com.handy.monster.util.ConfigUtil;
+import com.handy.monster.util.MonsterLevelUtil;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -32,55 +32,31 @@ public class MonsterLevelListener implements Listener {
         if (MonsterConstants.worlds == null || !MonsterConstants.worlds.contains(event.getDamager().getWorld().getName())) {
             return;
         }
-
-        // 随机没随机到0
-        if (MonsterConstants.levelProbability.randomIndex() != 0) {
-            return;
-        }
         // 判断攻击的是怪物
         if (!(event.getDamager() instanceof LivingEntity) || (event.getDamager() instanceof Player)) {
             return;
         }
         LivingEntity livingEntity = (LivingEntity) event.getDamager();
+        // 获取生物或方块的自定义名称，若无则返回null.
+        if (livingEntity.getCustomName() == null) {
+            return;
+        }
         // 判断被攻击的是玩家
         if (!(event.getEntity() instanceof Player)) {
             return;
         }
         Player player = (Player) event.getEntity();
-
-        // 获取生物或方块的自定义名称，若无则返回null.
-        if (livingEntity.getCustomName() == null) {
+        // 怪物攻击玩家升级概率
+        if (!ProbabilityUtil.getInstance().pickIndex(ConfigUtil.config.getDouble("levelProbability"))) {
             return;
         }
-
         // 获取当前等级
-        int level = BaseUtil.getSeparatorCustomNameNumber(livingEntity.getCustomName());
-
-        // boss不在继续升级
+        int level = MonsterLevelUtil.getLevel(livingEntity);
         if (level == -1) {
             return;
         }
-
-        AttributeInstance healthAttribute = livingEntity.getAttribute(Attribute.GENERIC_MAX_HEALTH);
-        AttributeInstance damageAttribute = livingEntity.getAttribute(Attribute.GENERIC_ATTACK_DAMAGE);
-        if (healthAttribute == null || damageAttribute == null) {
-            return;
-        }
-
-        // 升级
-        if (MonsterConstants.levelElite.randomIndex() == 0) {
-            healthAttribute.setBaseValue(MonsterConstants.levelEliteHealth);
-            damageAttribute.setBaseValue(MonsterConstants.levelEliteDamage);
-            livingEntity.setHealth(MonsterConstants.levelEliteHealth);
-            livingEntity.setCustomName(ChatColor.AQUA + "[BOSS]" + ChatColor.WHITE + BaseUtil.getSeparatorCustomName(livingEntity.getCustomName(), "]"));
-            player.sendMessage("绝处逢生:" + livingEntity.getCustomName() + "攻击了你,它进化为了BOSS...");
-        } else {
-            healthAttribute.setBaseValue(healthAttribute.getValue() + MonsterConstants.levelHealth);
-            damageAttribute.setBaseValue(damageAttribute.getValue() + MonsterConstants.levelDamage);
-            livingEntity.setHealth(healthAttribute.getValue());
-            livingEntity.setCustomName(ChatColor.AQUA + "[" + (level + 1) + "级]" + ChatColor.WHITE + BaseUtil.getSeparatorCustomName(livingEntity.getCustomName(), "]"));
-            player.sendMessage("绝处逢生:" + livingEntity.getCustomName() + "攻击了你,它升级了...");
-        }
+        MonsterLevelUtil.setLevel(livingEntity, BaseUtil.getSeparatorCustomName(livingEntity.getCustomName(), "]"), level + 1);
+        player.sendMessage("绝处逢生:" + livingEntity.getCustomName() + "攻击了你,它升级了...");
     }
 
     /**
@@ -95,31 +71,22 @@ public class MonsterLevelListener implements Listener {
         if (MonsterConstants.worlds == null || !MonsterConstants.worlds.contains(event.getDamager().getWorld().getName())) {
             return;
         }
-        // 判断攻击的是玩家
-        if (!(event.getDamager() instanceof Player)) {
-            return;
-        }
-        Player player = (Player) event.getDamager();
-
         // 判断被攻击的是怪物
         if (!(event.getEntity() instanceof LivingEntity) || (event.getDamager() instanceof Player)) {
             return;
         }
         LivingEntity livingEntity = (LivingEntity) event.getEntity();
-
         // 获取生物或方块的自定义名称，若无则返回null.
         if (livingEntity.getCustomName() == null) {
             return;
         }
-
-        // 随机没随机到0
-        if (MonsterConstants.teleport.randomIndex() != 0) {
+        // 判断攻击的是玩家
+        if (!(event.getDamager() instanceof Player)) {
             return;
         }
-
-        // 获取当前等级
-        int level = BaseUtil.getSeparatorCustomNameNumber(livingEntity.getCustomName());
-        if (level == -1) {
+        Player player = (Player) event.getDamager();
+        // 玩家攻击怪物,怪物瞬移的概率
+        if (!ProbabilityUtil.getInstance().pickIndex(ConfigUtil.config.getDouble("teleport"))) {
             return;
         }
         livingEntity.teleport(player);

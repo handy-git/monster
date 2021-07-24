@@ -6,7 +6,7 @@ import com.handy.monster.constant.MonsterConstants;
 import com.handy.monster.spawn.ElevenCreatureSpawn;
 import com.handy.monster.spawn.NineCreatureSpawn;
 import com.handy.monster.spawn.SixteenCreatureSpawn;
-import com.handy.monster.utils.ConfigUtil;
+import com.handy.monster.util.ConfigUtil;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.CreatureSpawnEvent;

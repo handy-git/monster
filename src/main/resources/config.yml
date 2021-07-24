@@ -35,6 +35,9 @@ worlds:
 # 怪物攻击玩家升级概率
 levelProbability: 0.1
 
+# 玩家攻击怪物,怪物瞬移的概率
+teleport: 0.01
+
 # 每级增加血量
 levelHealth: 1
 # 每级增加伤害
@@ -47,8 +50,6 @@ levelEliteHealth: 500
 # BOSS伤害
 levelEliteDamage: 20
 
-# 玩家攻击怪物,怪物瞬移的概率
-teleport: 0.01
 
 monsterOnMsg: §a请注意:op开启了超强怪物,超强怪物即将来袭!!!!
 monsterOffMsg: §a请注意:超强怪物已经关闭,超强怪物不在刷新!!!!
