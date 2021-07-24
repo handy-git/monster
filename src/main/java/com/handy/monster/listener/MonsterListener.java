@@ -30,20 +30,18 @@ public class MonsterListener implements Listener {
         if (!MonsterConstants.isUse) {
             return;
         }
-        if (!"replace".equals(ConfigUtil.config.getString("spawn"))) {
-            return;
-        }
-
-        // 不是自然生成的不执行
-        if (!CreatureSpawnEvent.SpawnReason.NATURAL.equals(event.getSpawnReason())) {
-            return;
-        }
-
         // 判断世界是否开启
         if (MonsterConstants.worlds == null || !MonsterConstants.worlds.contains(event.getEntity().getWorld().getName())) {
             return;
         }
-
+        // 生成规则
+        if (!"replace".equals(ConfigUtil.config.getString("spawn"))) {
+            return;
+        }
+        // 不是自然生成的不执行
+        if (!CreatureSpawnEvent.SpawnReason.NATURAL.equals(event.getSpawnReason())) {
+            return;
+        }
         // 不同版本不同怪物
         switch (VersionCheckEnum.getEnum()) {
             case V_1_7:
