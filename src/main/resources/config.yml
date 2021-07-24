@@ -23,14 +23,14 @@ Leather: 0.2
 LeatherDropChance: 0.025
 
 # 装备随机附魔的概率和最大随机附魔数量
-Enchantment : 0.4
+Enchantment: 0.4
 EnchantmentNumber: 2
 
 # 启用怪物等级规则的世界
 worlds:
-- "world"
-- "world_nether"
-- "world_the_end"
+  - "world"
+  - "world_nether"
+  - "world_the_end"
 
 # 怪物攻击玩家升级概率
 levelProbability: 0.1
@@ -52,3 +52,6 @@ teleport: 0.01
 
 monsterOnMsg: §a请注意:op开启了超强怪物,超强怪物即将来袭!!!!
 monsterOffMsg: §a请注意:超强怪物已经关闭,超强怪物不在刷新!!!!
+
+# 生成类型, add 新增生物  replace 替换原版生物
+spawn: add

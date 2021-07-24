@@ -23,15 +23,16 @@ public class NineCreatureSpawn {
      * @param event 事件
      */
     public static void setCreatureSpawn(CreatureSpawnEvent event) {
-        LivingEntity entity = event.getEntity();
-        EntityType entityType = event.getEntityType();
-        EntityEquipment equipment = entity.getEquipment();
+        setCreatureSpawn(event.getEntity());
+    }
 
+    public static void setCreatureSpawn(LivingEntity entity) {
+        EntityType entityType = entity.getType();
+        EntityEquipment equipment = entity.getEquipment();
         String name = entityType.getName();
         if (name == null || "".equals(name)) {
             return;
         }
-
         if (name.equals(EntityType.valueOf("ZOMBIE").getName())) {
             MonsterEquipmentUtil.lotteryEquipment(equipment, EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_SWORD);
             MonsterLevelUtil.setLevel(entity, "僵尸");

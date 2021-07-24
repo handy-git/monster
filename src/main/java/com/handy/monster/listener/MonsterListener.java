@@ -1,10 +1,12 @@
 package com.handy.monster.listener;
 
+import com.handy.lib.annotation.HandyListener;
 import com.handy.lib.constants.VersionCheckEnum;
 import com.handy.monster.constant.MonsterConstants;
 import com.handy.monster.spawn.ElevenCreatureSpawn;
 import com.handy.monster.spawn.NineCreatureSpawn;
 import com.handy.monster.spawn.SixteenCreatureSpawn;
+import com.handy.monster.utils.ConfigUtil;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.CreatureSpawnEvent;
@@ -13,6 +15,7 @@ import org.bukkit.event.entity.CreatureSpawnEvent;
  * @author hs
  * @date 2020/4/4 20:10
  */
+@HandyListener
 public class MonsterListener implements Listener {
 
     /**
@@ -25,6 +28,9 @@ public class MonsterListener implements Listener {
     public void onCreatureSpawnEvent(CreatureSpawnEvent event) {
         // 是否启用
         if (!MonsterConstants.isUse) {
+            return;
+        }
+        if (!"replace".equals(ConfigUtil.config.getString("spawn"))) {
             return;
         }
 

@@ -23,8 +23,11 @@ public class SixteenCreatureSpawn {
      * @param event 事件
      */
     public static void setCreatureSpawn(CreatureSpawnEvent event) {
-        LivingEntity entity = event.getEntity();
-        EntityType entityType = event.getEntityType();
+        setCreatureSpawn(event.getEntity());
+    }
+
+    public static void setCreatureSpawn(LivingEntity entity) {
+        EntityType entityType = entity.getType();
         EntityEquipment equipment = entity.getEquipment();
 
         String name = entityType.getName();

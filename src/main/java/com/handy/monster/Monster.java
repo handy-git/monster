@@ -1,14 +1,15 @@
 package com.handy.monster;
 
-import com.handy.monster.command.MonsterCommand;
-import com.handy.monster.listener.ListenerManage;
+import com.handy.lib.InitApi;
+import com.handy.lib.api.MessageApi;
 import com.handy.monster.utils.ConfigUtil;
-import org.bukkit.command.PluginCommand;
+import com.handy.monster.utils.TaskUtil;
 import org.bukkit.plugin.java.JavaPlugin;
 
 /**
+ * 主类
+ *
  * @author handy
- * @date 2020/10/10 15:00
  */
 public final class Monster extends JavaPlugin {
     public static Monster instance;
@@ -17,20 +18,18 @@ public final class Monster extends JavaPlugin {
     public void onEnable() {
         instance = this;
         ConfigUtil.getConfig();
-        // 加载命令
-        PluginCommand monsterPluginCommand = this.getCommand("monster");
-        if (monsterPluginCommand != null) {
-            monsterPluginCommand.setExecutor(new MonsterCommand());
-            monsterPluginCommand.setTabCompleter(new MonsterCommand());
-        }
-        // 加载监听器
-        ListenerManage.enableListener(this);
-        this.getLogger().info("Monster插件成功开启");
+        InitApi.getInstance(this)
+                .initCommand("com.handy.monster.command")
+                .initListener("com.handy.monster.listener")
+        ;
+        // 设置怪物生成
+        TaskUtil.setAsyncMonsterSpawn();
+        MessageApi.sendConsoleMessage(this, "&aMonster插件成功开启");
     }
 
     @Override
     public void onDisable() {
-        this.getLogger().info("Monster插件成功关闭");
+        MessageApi.sendConsoleMessage(this, "&aMonster插件成功关闭");
     }
 
     public static Monster getInstance() {

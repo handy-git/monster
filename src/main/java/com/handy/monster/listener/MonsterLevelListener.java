@@ -1,9 +1,8 @@
 package com.handy.monster.listener;
 
+import com.handy.lib.annotation.HandyListener;
 import com.handy.lib.util.BaseUtil;
-import com.handy.lib.util.ProbabilityUtil;
 import com.handy.monster.constant.MonsterConstants;
-import com.handy.monster.utils.ConfigUtil;
 import org.bukkit.ChatColor;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeInstance;
@@ -14,9 +13,11 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 
 /**
- * @author hs
- * @date 2020/4/4 20:10
+ * 怪物攻击进化
+ *
+ * @author handy
  */
+@HandyListener
 public class MonsterLevelListener implements Listener {
 
     /**
@@ -37,7 +38,7 @@ public class MonsterLevelListener implements Listener {
             return;
         }
         // 判断攻击的是怪物
-        if (!(event.getDamager() instanceof LivingEntity)) {
+        if (!(event.getDamager() instanceof LivingEntity) || (event.getDamager() instanceof Player)) {
             return;
         }
         LivingEntity livingEntity = (LivingEntity) event.getDamager();
@@ -101,7 +102,7 @@ public class MonsterLevelListener implements Listener {
         Player player = (Player) event.getDamager();
 
         // 判断被攻击的是怪物
-        if (!(event.getEntity() instanceof LivingEntity)) {
+        if (!(event.getEntity() instanceof LivingEntity) || (event.getDamager() instanceof Player)) {
             return;
         }
         LivingEntity livingEntity = (LivingEntity) event.getEntity();

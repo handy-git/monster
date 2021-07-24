@@ -3,11 +3,18 @@ package com.handy.monster.utils;
 import com.handy.lib.util.LotteryUtil;
 import com.handy.monster.Monster;
 import com.handy.monster.constant.MonsterConstants;
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.World;
+import org.bukkit.block.Block;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Player;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * @author hs
@@ -138,6 +145,34 @@ public class ConfigUtil {
 
         MonsterConstants.levelEliteHealth = config.getDouble("levelEliteHealth");
         MonsterConstants.levelEliteDamage = config.getDouble("levelEliteDamage");
+    }
+
+    /**
+     * 获取随机位置
+     *
+     * @param player   玩家
+     * @param minBound 最小范围
+     * @param maxBound 最大范围
+     * @return Location
+     */
+    public static Location getRandomLocation(Player player, int minBound, int maxBound, int time) {
+        Location location = player.getLocation();
+        World world = player.getWorld();
+        int x = (int) location.getX();
+        int z = (int) location.getZ();
+        int newX = ThreadLocalRandom.current().nextInt(x + minBound, x + maxBound);
+        int newZ = ThreadLocalRandom.current().nextInt(z + minBound, z + maxBound);
+        int newY = world.getHighestBlockYAt(newX, newZ);
+
+        Location checkLoc = new Location(world, (double) newX, (double) (newY - 1), (double) newZ);
+        Block block = world.getBlockAt(checkLoc);
+        Location loc = new Location(world, (double) newX, (double) (newY + 1), (double) newZ);
+        // 过滤方块类型
+        List<Material> materials = Arrays.asList(Material.WATER, Material.LAVA);
+        if (materials.contains(block.getType())) {
+            return time >= 10 ? loc : getRandomLocation(player, minBound, maxBound, time + 1);
+        }
+        return loc;
     }
 
 }
