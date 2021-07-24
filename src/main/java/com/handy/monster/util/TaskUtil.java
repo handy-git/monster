@@ -64,7 +64,8 @@ public class TaskUtil {
             });
             // 获取在线玩家
             for (Player player : Bukkit.getOnlinePlayers()) {
-                if (BaseUtil.playerTimeIsNotNether(player)) {
+                // 是否夜晚
+                if (BaseUtil.worldTimeIsNotNight(player)) {
                     continue;
                 }
                 World world = player.getWorld();
