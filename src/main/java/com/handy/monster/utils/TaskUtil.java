@@ -1,6 +1,7 @@
 package com.handy.monster.utils;
 
 import com.handy.lib.constants.VersionCheckEnum;
+import com.handy.lib.util.BaseUtil;
 import com.handy.monster.Monster;
 import com.handy.monster.constant.MonsterConstants;
 import com.handy.monster.spawn.ElevenCreatureSpawn;
@@ -63,6 +64,9 @@ public class TaskUtil {
             });
             // 获取在线玩家
             for (Player player : Bukkit.getOnlinePlayers()) {
+                if (BaseUtil.playerTimeIsNotNether(player)) {
+                    continue;
+                }
                 World world = player.getWorld();
                 // 判断世界是否开启
                 if (MonsterConstants.worlds == null || !MonsterConstants.worlds.contains(world.getName())) {
