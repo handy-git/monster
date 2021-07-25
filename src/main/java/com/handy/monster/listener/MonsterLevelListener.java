@@ -71,17 +71,13 @@ public class MonsterLevelListener implements Listener {
         if (MonsterConstants.worlds == null || !MonsterConstants.worlds.contains(event.getDamager().getWorld().getName())) {
             return;
         }
-        // 判断被攻击的是怪物
-        if (!(event.getEntity() instanceof LivingEntity) || (event.getDamager() instanceof Player)) {
+        // 判断被攻击的是怪物 和 判断攻击的是玩家
+        if (!(event.getEntity() instanceof LivingEntity) || (event.getEntity() instanceof Player) || !(event.getDamager() instanceof Player)) {
             return;
         }
         LivingEntity livingEntity = (LivingEntity) event.getEntity();
         // 获取生物或方块的自定义名称，若无则返回null.
         if (livingEntity.getCustomName() == null) {
-            return;
-        }
-        // 判断攻击的是玩家
-        if (!(event.getDamager() instanceof Player)) {
             return;
         }
         Player player = (Player) event.getDamager();

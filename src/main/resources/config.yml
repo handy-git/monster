@@ -43,14 +43,6 @@ levelHealth: 1
 # 每级增加伤害
 levelDamage: 0.1
 
-# 怪物升级中突变为BOSS的概率(变为BOSS后不会在升级)
-levelElite: 0.1
-# BOSS血量
-levelEliteHealth: 500
-# BOSS伤害
-levelEliteDamage: 20
-
-
 monsterOnMsg: §a请注意:op开启了超强怪物,超强怪物即将来袭!!!!
 monsterOffMsg: §a请注意:超强怪物已经关闭,超强怪物不在刷新!!!!
 

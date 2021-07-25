@@ -122,12 +122,6 @@ public class ConfigUtil {
         // 支持世界
         MonsterConstants.worlds = config.getStringList("worlds");
 
-        // 升级概率
-        List<Double> levelEliteList = new ArrayList<>();
-        levelEliteList.add(config.getDouble("levelElite"));
-        levelEliteList.add(1.0D - config.getDouble("levelElite"));
-        MonsterConstants.levelElite = new LotteryUtil(levelEliteList);
-
         MonsterConstants.levelHealth = config.getDouble("levelHealth");
         MonsterConstants.levelDamage = config.getDouble("levelDamage");
 
