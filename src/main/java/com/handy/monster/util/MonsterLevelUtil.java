@@ -1,7 +1,9 @@
 package com.handy.monster.util;
 
+import com.handy.lib.api.MessageApi;
 import com.handy.lib.constants.VersionCheckEnum;
 import com.handy.lib.core.CollUtil;
+import com.handy.monster.Monster;
 import org.bukkit.ChatColor;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeInstance;
@@ -11,6 +13,7 @@ import org.bukkit.potion.PotionEffectType;
 
 import java.util.Collection;
 import java.util.Random;
+import java.util.Set;
 
 /**
  * @author hs
@@ -25,7 +28,7 @@ public class MonsterLevelUtil {
      * @param name   名称
      */
     public static void setLevel(LivingEntity entity, String name) {
-        setLevel(entity, name, new Random().nextInt(10));
+        setLevel(entity, name, -1);
     }
 
     /**
@@ -36,17 +39,45 @@ public class MonsterLevelUtil {
      * @param level  等级
      */
     public static void setLevel(LivingEntity entity, String name, int level) {
-        level = level == 0 ? 1 : level;
+        // 初始化属性
         AttributeInstance healthAttribute = entity.getAttribute(Attribute.GENERIC_MAX_HEALTH);
         AttributeInstance damageAttribute = entity.getAttribute(Attribute.GENERIC_ATTACK_DAMAGE);
         if (healthAttribute == null || damageAttribute == null) {
             return;
         }
+        double maxHealth = 0.0;
+        double damage = 0.0;
+        // 初始化
+        if (level == -1) {
+            int randomLevel = ConfigUtil.config.getInt("randomLevel");
+            level = new Random().nextInt(randomLevel);
+            level = level == 0 ? 1 : level;
+            maxHealth = healthAttribute.getValue();
+            damage = damageAttribute.getValue();
+            String healthStr = ".monster.health:" + maxHealth;
+            String damageStr = ".monster.damage:" + damage;
+            entity.addScoreboardTag(healthStr);
+            entity.addScoreboardTag(damageStr);
+        } else {
+            Set<String> scoreboardTags = entity.getScoreboardTags();
+            if (!scoreboardTags.isEmpty()) {
+                for (String scoreboardTag : scoreboardTags) {
+                    if (scoreboardTag.contains(".monster.health")) {
+                        String[] split = scoreboardTag.split(":");
+                        maxHealth = Double.parseDouble(split[1]);
+                    }
+                    if (scoreboardTag.contains(".monster.damage")) {
+                        String[] split = scoreboardTag.split(":");
+                        damage = Double.parseDouble(split[1]);
+                    }
+                }
+            }
+        }
         // 设置属性
         double levelHealth = ConfigUtil.config.getDouble("levelHealth");
         double levelDamage = ConfigUtil.config.getDouble("levelDamage");
-        healthAttribute.setBaseValue(healthAttribute.getValue() + (double) level * levelHealth);
-        damageAttribute.setBaseValue(damageAttribute.getValue() + (double) level * levelDamage);
+        healthAttribute.setBaseValue(maxHealth + (double) level * levelHealth);
+        damageAttribute.setBaseValue(damage + (double) level * levelDamage);
         entity.setHealth(healthAttribute.getValue());
         entity.setCustomName(ChatColor.AQUA + "[" + level + "级]" + ChatColor.WHITE + name);
         // 设置是否在客户端上显示实体的自定义名称.
@@ -75,6 +106,25 @@ public class MonsterLevelUtil {
      * @param entity 怪物
      */
     public static int getLevel(LivingEntity entity) {
+        Set<String> scoreboardTags = entity.getScoreboardTags();
+        int level = -1;
+        if (!scoreboardTags.isEmpty()) {
+            for (String scoreboardTag : scoreboardTags) {
+                MessageApi.sendConsoleDebugMessage(Monster.getInstance(), entity.getCustomName() + ",tag" + scoreboardTag);
+                if (scoreboardTag.contains(".monster.health")) {
+                    String[] split = scoreboardTag.split(":");
+                    double health = Double.parseDouble(split[1]);
+                    MessageApi.sendConsoleDebugMessage(Monster.getInstance(), entity.getCustomName() + ",healthtag" + health);
+                }
+                if (scoreboardTag.contains(".monster.damage")) {
+                    String[] split = scoreboardTag.split(":");
+                    double damage = Double.parseDouble(split[1]);
+                    MessageApi.sendConsoleDebugMessage(Monster.getInstance(), entity.getCustomName() + ",damagetag" + damage);
+                }
+            }
+        }
+
+        MessageApi.sendConsoleDebugMessage(Monster.getInstance(), "当前等级" + level);
         PotionEffect potionEffect = entity.getPotionEffect(PotionEffectType.NIGHT_VISION);
         if (potionEffect == null || !PotionEffectType.NIGHT_VISION.equals(potionEffect.getType())) {
             return -1;

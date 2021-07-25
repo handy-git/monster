@@ -11,6 +11,7 @@ import com.handy.monster.spawn.SixteenCreatureSpawn;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.Entity;
@@ -65,6 +66,8 @@ public class TaskUtil {
             entityTypeMap.forEach((key, value) -> {
                 keyList.add(key);
             });
+            int minBound = ConfigUtil.config.getInt("minBound");
+            int maxBound = ConfigUtil.config.getInt("maxBound");
             // 获取在线玩家
             for (Player player : Bukkit.getOnlinePlayers()) {
                 // 是否夜晚
@@ -81,9 +84,9 @@ public class TaskUtil {
                     i = 1;
                 }
                 for (int j = 0; j < i; j++) {
-                    Location randomLocation = ConfigUtil.getRandomLocation(player, 10, 128, 0);
+                    Location randomLocation = ConfigUtil.getRandomLocation(player, minBound, maxBound, 0);
                     String key = keyList.get(new Random().nextInt(entityTypeMap.size()));
-                    TextComponent message = new TextComponent("怪物出生点, x:" + randomLocation.getX() + ",y: " + randomLocation.getY() + ",z:" + randomLocation.getZ());
+                    TextComponent message = new TextComponent(ChatColor.BLUE + "怪物出生点, x:" + randomLocation.getX() + ",y: " + randomLocation.getY() + ",z:" + randomLocation.getZ());
                     message.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/tp " + randomLocation.getX() + " " + randomLocation.getY() + " " + randomLocation.getZ()));
                     MessageApi.sendDebugMessage(player, message);
                     // 获取怪物

@@ -31,15 +31,18 @@ worlds:
   - "world"
   - "zy"
 
+# 怪物初始等级范围
+randomLevel: 20
+
 # 怪物攻击玩家升级概率
-levelProbability: 0.01
+levelProbability: 0.1
 
 # 玩家攻击怪物,怪物瞬移的概率
-teleport: 0.01
+teleport: 0.1
 
-# 每级递增血量 计算公式 = 之前等级的数据 +（level * 配置的值）
+# 每级增加血量
 levelHealth: 1
-# 每级递增伤害 计算公式 = 之前等级的数据 +（level * 配置的值）
+# 每级增加伤害
 levelDamage: 0.1
 
 monsterOnMsg: §a请注意:op开启了超强怪物,超强怪物即将来袭!!!!
@@ -48,5 +51,10 @@ monsterOffMsg: §a请注意:超强怪物已经关闭,超强怪物不在刷新!!!
 # 生成类型, add 新增生物  replace 替换原版生物
 spawn: add
 
-# add类型的生成速度
+# add类型 在玩家附近生成怪物的最小范围
+minBound: 15
+# add类型 在玩家附近生成怪物的最大范围
+maxBound: 50
+
+# add类型 生成速度 单位秒
 time: 60
