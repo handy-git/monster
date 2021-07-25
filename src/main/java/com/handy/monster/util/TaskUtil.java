@@ -85,7 +85,6 @@ public class TaskUtil {
                     String key = keyList.get(new Random().nextInt(entityTypeMap.size()));
                     TextComponent message = new TextComponent("怪物出生点, x:" + randomLocation.getX() + ",y: " + randomLocation.getY() + ",z:" + randomLocation.getZ());
                     message.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/tp " + randomLocation.getX() + " " + randomLocation.getY() + " " + randomLocation.getZ()));
-                    message.addExtra(message);
                     MessageApi.sendDebugMessage(player, message);
                     // 获取怪物
                     EntityType entitytype = EntityType.valueOf(key);
