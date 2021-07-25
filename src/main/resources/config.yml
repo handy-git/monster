@@ -52,9 +52,9 @@ monsterOffMsg: §a请注意:超强怪物已经关闭,超强怪物不在刷新!!!
 spawn: add
 
 # add类型 在玩家附近生成怪物的最小范围
-minBound: 15
+minBound: 10
 # add类型 在玩家附近生成怪物的最大范围
-maxBound: 50
+maxBound: 30
 
 # add类型 生成速度 单位秒
 time: 60
