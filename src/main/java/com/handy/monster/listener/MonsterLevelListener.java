@@ -1,6 +1,7 @@
 package com.handy.monster.listener;
 
 import com.handy.lib.annotation.HandyListener;
+import com.handy.lib.api.MessageApi;
 import com.handy.lib.util.BaseUtil;
 import com.handy.lib.util.ProbabilityUtil;
 import com.handy.monster.constant.MonsterConstants;
@@ -52,6 +53,7 @@ public class MonsterLevelListener implements Listener {
         }
         // 获取当前等级
         int level = MonsterLevelUtil.getLevel(livingEntity);
+        MessageApi.sendDebugMessage(player, player.getName() + " 正在攻击的" + livingEntity.getCustomName() + ",当前等级:" + level);
         if (level == -1) {
             return;
         }

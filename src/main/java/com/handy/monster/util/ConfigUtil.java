@@ -1,5 +1,6 @@
 package com.handy.monster.util;
 
+import com.handy.lib.constants.BaseConstants;
 import com.handy.lib.util.LotteryUtil;
 import com.handy.monster.Monster;
 import com.handy.monster.constant.MonsterConstants;
@@ -37,6 +38,7 @@ public class ConfigUtil {
         Monster.getInstance().reloadConfig();
         config = Monster.getInstance().getConfig();
         loadConfig();
+        BaseConstants.DEBUG = config.getBoolean("debug");
     }
 
     private static void loadConfig() {

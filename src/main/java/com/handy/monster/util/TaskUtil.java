@@ -1,5 +1,6 @@
 package com.handy.monster.util;
 
+import com.handy.lib.api.MessageApi;
 import com.handy.lib.constants.VersionCheckEnum;
 import com.handy.lib.util.BaseUtil;
 import com.handy.monster.Monster;
@@ -7,6 +8,8 @@ import com.handy.monster.constant.MonsterConstants;
 import com.handy.monster.spawn.ElevenCreatureSpawn;
 import com.handy.monster.spawn.NineCreatureSpawn;
 import com.handy.monster.spawn.SixteenCreatureSpawn;
+import net.md_5.bungee.api.chat.ClickEvent;
+import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -78,8 +81,12 @@ public class TaskUtil {
                     i = 1;
                 }
                 for (int j = 0; j < i; j++) {
-                    Location randomLocation = ConfigUtil.getRandomLocation(player, -128, 128, 0);
+                    Location randomLocation = ConfigUtil.getRandomLocation(player, 10, 128, 0);
                     String key = keyList.get(new Random().nextInt(entityTypeMap.size()));
+                    TextComponent message = new TextComponent("怪物出生点, x:" + randomLocation.getX() + ",y: " + randomLocation.getY() + ",z:" + randomLocation.getZ());
+                    message.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/tp " + randomLocation.getX() + " " + randomLocation.getY() + " " + randomLocation.getZ()));
+                    message.addExtra(message);
+                    MessageApi.sendDebugMessage(player, message);
                     // 获取怪物
                     EntityType entitytype = EntityType.valueOf(key);
                     Entity entity = world.spawnEntity(randomLocation, entitytype);
