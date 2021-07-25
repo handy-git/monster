@@ -20,10 +20,7 @@ import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 import java.util.concurrent.Semaphore;
 
 /**
@@ -31,6 +28,8 @@ import java.util.concurrent.Semaphore;
  **/
 public class TaskUtil {
     private static final Semaphore LOCK = new Semaphore(1);
+
+    private static final Map<UUID, Long> PLAYER_TIME_MAP = new HashMap<>();
 
     /**
      * 设置定时任务
@@ -44,6 +43,31 @@ public class TaskUtil {
                 }
             }
         }.runTaskTimer(Monster.getInstance(), 60, 20L * ConfigUtil.config.getLong("time"));
+    }
+
+    /**
+     * 清除管理缓存
+     */
+    public static void clearPlayer() {
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                long addPlayerCd = ConfigUtil.config.getLong("addPlayerCd");
+                for (Player player : Bukkit.getOnlinePlayers()) {
+                    Long time = PLAYER_TIME_MAP.get(player.getUniqueId());
+                    if (time == null) {
+                        continue;
+                    }
+                    long keepAlive = (System.currentTimeMillis() - time) / 1000L;
+                    if (keepAlive >= addPlayerCd) {
+                        PLAYER_TIME_MAP.remove(player.getUniqueId());
+                        MessageApi.sendDebugMessage(player, ChatColor.AQUA + player.getName() + "该玩家生成时间重置完成");
+                    } else {
+                        MessageApi.sendDebugMessage(player, ChatColor.AQUA + player.getName() + "该玩家距离生成时间还差: " + (addPlayerCd - keepAlive));
+                    }
+                }
+            }
+        }.runTaskTimerAsynchronously(Monster.getInstance(), 60, 20L * 60);
     }
 
     /**
@@ -70,6 +94,10 @@ public class TaskUtil {
             int maxBound = ConfigUtil.config.getInt("maxBound");
             // 获取在线玩家
             for (Player player : Bukkit.getOnlinePlayers()) {
+                if (PLAYER_TIME_MAP.get(player.getUniqueId()) != null) {
+                    MessageApi.sendDebugMessage(player, ChatColor.AQUA + "该玩家生成时间正在冷却");
+                    continue;
+                }
                 // 是否夜晚
                 if (BaseUtil.worldTimeIsNotNight(player)) {
                     continue;
@@ -116,6 +144,7 @@ public class TaskUtil {
                             break;
                     }
                 }
+                PLAYER_TIME_MAP.put(player.getUniqueId(), System.currentTimeMillis());
             }
         } finally {
             LOCK.release();

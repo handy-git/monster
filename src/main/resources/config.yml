@@ -58,3 +58,6 @@ maxBound: 30
 
 # add类型 生成速度 单位秒
 time: 60
+
+# 一个玩家的生成冷却时间 单位秒
+addPlayerCd: 300

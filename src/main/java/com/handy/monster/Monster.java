@@ -24,6 +24,7 @@ public final class Monster extends JavaPlugin {
         ;
         // 设置怪物生成
         TaskUtil.setAsyncMonsterSpawn();
+        TaskUtil.clearPlayer();
         MessageApi.sendConsoleMessage(this, "&aMonster插件成功开启");
     }
 
