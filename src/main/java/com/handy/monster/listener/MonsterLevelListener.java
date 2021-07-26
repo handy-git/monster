@@ -83,6 +83,12 @@ public class MonsterLevelListener implements Listener {
             return;
         }
         Player player = (Player) event.getDamager();
+        // 获取当前等级
+        int level = MonsterLevelUtil.getLevel(livingEntity);
+        MessageApi.sendDebugMessage(player, player.getName() + " 正在攻击的" + livingEntity.getCustomName() + ",当前等级:" + level);
+        if (level == -1) {
+            return;
+        }
         // 玩家攻击怪物,怪物瞬移的概率
         if (!ProbabilityUtil.getInstance().pickIndex(ConfigUtil.config.getDouble("teleport"))) {
             return;
