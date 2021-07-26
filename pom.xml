@@ -68,6 +68,12 @@
                             <include>com.handy.lib:*:*:*</include>
                         </includes>
                     </artifactSet>
+                    <relocations>
+                        <relocation>
+                            <pattern>com.handy.lib</pattern>
+                            <shadedPattern>com.handy.monster.lib</shadedPattern>
+                        </relocation>
+                    </relocations>
                 </configuration>
                 <executions>
                     <execution>
