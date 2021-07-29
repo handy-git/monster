@@ -25,7 +25,7 @@ import java.util.List;
  * @author handy
  * @date 2020/10/10 15:00
  */
-@HandyCommand(name = "monster", permission = "monster.monster")
+@HandyCommand(name = "monster")
 public class MonsterCommand implements TabExecutor {
 
     @Override
@@ -78,7 +78,7 @@ public class MonsterCommand implements TabExecutor {
         }).runTaskLater(Monster.getInstance(), (num * 20L));
     }
 
-    @HandySubCommand(mainCommand = "monster", subCommand = "off", permission = "monster.on")
+    @HandySubCommand(mainCommand = "monster", subCommand = "off", permission = "monster.off")
     public void onOffCommand(CommandSender sender, Command cmd, String label, String[] args) {
         MonsterConstants.isUse = false;
         sender.sendMessage(ChatColor.AQUA + "怪物加强关闭成功!");
