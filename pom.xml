@@ -7,22 +7,15 @@
     <groupId>com.handy.monster</groupId>
     <artifactId>Monster</artifactId>
     <name>Monster</name>
-    <version>3.0.2</version>
+    <version>3.0.3</version>
     <description>一个有点好用的怪物插件!</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spigot-api.vesion>1.17-R0.1-SNAPSHOT</spigot-api.vesion>
-        <lombok.version>1.18.18</lombok.version>
-        <HandyLib.version>1.4.0</HandyLib.version>
+        <spigot-api.vesion>1.17.1-R0.1-SNAPSHOT</spigot-api.vesion>
+        <lombok.version>1.18.20</lombok.version>
+        <HandyLib.version>1.4.1</HandyLib.version>
     </properties>
-
-    <repositories>
-        <repository>
-            <id>minecraft</id>
-            <url>http://23.224.140.154:18208/repository/minecraft/</url>
-        </repository>
-    </repositories>
 
     <dependencies>
         <dependency>
