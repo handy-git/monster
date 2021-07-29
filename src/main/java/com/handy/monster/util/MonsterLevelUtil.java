@@ -90,7 +90,7 @@ public class MonsterLevelUtil {
             }
         }
         PotionEffect potionEffect;
-        if (VersionCheckEnum.V_1_7.equals(VersionCheckEnum.getEnum())) {
+        if (VersionCheckEnum.getEnum().getVersionId() < VersionCheckEnum.V_1_13.getVersionId()) {
             potionEffect = new PotionEffect(PotionEffectType.NIGHT_VISION, 1728000, level, false);
         } else {
             potionEffect = new PotionEffect(PotionEffectType.NIGHT_VISION, 1728000, level, false, false, false);
