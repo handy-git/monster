@@ -94,7 +94,7 @@ public class MonsterLevelListener implements Listener {
             return;
         }
         livingEntity.teleport(player);
-        player.sendMessage("愤怒出击:" + livingEntity.getCustomName() + "被攻击烦了,它瞬移过来有也要打死你...");
+        player.sendMessage("愤怒出击:" + livingEntity.getCustomName() + "被攻击烦了,它瞬移过来也要打死你...");
     }
 
 }
