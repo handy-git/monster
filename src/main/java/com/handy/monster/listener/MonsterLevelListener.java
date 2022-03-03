@@ -2,9 +2,9 @@ package com.handy.monster.listener;
 
 import com.handy.lib.annotation.HandyListener;
 import com.handy.lib.api.MessageApi;
+import com.handy.lib.core.CollUtil;
 import com.handy.lib.util.BaseUtil;
 import com.handy.lib.util.ProbabilityUtil;
-import com.handy.monster.constant.MonsterConstants;
 import com.handy.monster.util.ConfigUtil;
 import com.handy.monster.util.MonsterLevelUtil;
 import org.bukkit.entity.LivingEntity;
@@ -12,6 +12,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
+
+import java.util.List;
 
 /**
  * 怪物攻击进化
@@ -30,7 +32,8 @@ public class MonsterLevelListener implements Listener {
     @EventHandler
     public void onEntityDamageByEntity(EntityDamageByEntityEvent event) {
         // 判断世界是否开启
-        if (MonsterConstants.worlds == null || !MonsterConstants.worlds.contains(event.getDamager().getWorld().getName())) {
+        List<String> worlds = ConfigUtil.config.getStringList("worlds");
+        if (CollUtil.isNotEmpty(worlds) && !worlds.contains("[ALL]") && !worlds.contains(event.getDamager().getWorld().getName())) {
             return;
         }
         // 判断攻击的是怪物
@@ -70,7 +73,8 @@ public class MonsterLevelListener implements Listener {
     @EventHandler
     public void onEntityDamageByEntityTeleport(EntityDamageByEntityEvent event) {
         // 判断世界是否开启
-        if (MonsterConstants.worlds == null || !MonsterConstants.worlds.contains(event.getDamager().getWorld().getName())) {
+        List<String> worlds = ConfigUtil.config.getStringList("worlds");
+        if (CollUtil.isNotEmpty(worlds) && !worlds.contains("[ALL]") && !worlds.contains(event.getDamager().getWorld().getName())) {
             return;
         }
         // 判断被攻击的是怪物 和 判断攻击的是玩家

@@ -25,12 +25,12 @@ public final class Monster extends JavaPlugin {
         // 设置怪物生成
         TaskUtil.setAsyncMonsterSpawn();
         TaskUtil.clearPlayer();
-        MessageApi.sendConsoleMessage(this, "&aMonster插件成功开启");
+        MessageApi.sendConsoleMessage("&aMonster插件成功开启");
     }
 
     @Override
     public void onDisable() {
-        MessageApi.sendConsoleMessage(this, "&aMonster插件成功关闭");
+        MessageApi.sendConsoleMessage("&aMonster插件成功关闭");
     }
 
     public static Monster getInstance() {

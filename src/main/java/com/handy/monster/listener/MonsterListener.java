@@ -2,6 +2,7 @@ package com.handy.monster.listener;
 
 import com.handy.lib.annotation.HandyListener;
 import com.handy.lib.constants.VersionCheckEnum;
+import com.handy.lib.core.CollUtil;
 import com.handy.monster.constant.MonsterConstants;
 import com.handy.monster.spawn.ElevenCreatureSpawn;
 import com.handy.monster.spawn.NineCreatureSpawn;
@@ -10,6 +11,8 @@ import com.handy.monster.util.ConfigUtil;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.CreatureSpawnEvent;
+
+import java.util.List;
 
 /**
  * @author hs
@@ -31,7 +34,8 @@ public class MonsterListener implements Listener {
             return;
         }
         // 判断世界是否开启
-        if (MonsterConstants.worlds == null || !MonsterConstants.worlds.contains(event.getEntity().getWorld().getName())) {
+        List<String> worlds = ConfigUtil.config.getStringList("worlds");
+        if (CollUtil.isNotEmpty(worlds) && !worlds.contains("[ALL]") && !worlds.contains(event.getEntity().getWorld().getName())) {
             return;
         }
         // 生成规则

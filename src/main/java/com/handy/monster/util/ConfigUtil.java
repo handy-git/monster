@@ -121,9 +121,6 @@ public class ConfigUtil {
         MonsterConstants.enchantment = new LotteryUtil(enchantment);
         MonsterConstants.enchantmentNumber = config.getInt("EnchantmentNumber");
 
-        // 支持世界
-        MonsterConstants.worlds = config.getStringList("worlds");
-
         MonsterConstants.levelHealth = config.getDouble("levelHealth");
         MonsterConstants.levelDamage = config.getDouble("levelDamage");
 

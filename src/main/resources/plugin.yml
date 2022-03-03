@@ -1,8 +1,9 @@
 name: monster
 main: com.handy.monster.Monster
-version: 3.0.3
+version: 3.0.4
 author: handy
-api-version: "1.13"
+api-version: 1.13
+website: https://www.mcbbs.net/thread-963507-1-1.html
 description: 一个有点好用的怪物插件
 commands:
   monster:

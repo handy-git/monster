@@ -2,6 +2,7 @@ package com.handy.monster.util;
 
 import com.handy.lib.api.MessageApi;
 import com.handy.lib.constants.VersionCheckEnum;
+import com.handy.lib.core.CollUtil;
 import com.handy.lib.util.BaseUtil;
 import com.handy.monster.Monster;
 import com.handy.monster.constant.MonsterConstants;
@@ -104,7 +105,8 @@ public class TaskUtil {
                 }
                 World world = player.getWorld();
                 // 判断世界是否开启
-                if (MonsterConstants.worlds == null || !MonsterConstants.worlds.contains(world.getName())) {
+                List<String> worlds = ConfigUtil.config.getStringList("worlds");
+                if (CollUtil.isNotEmpty(worlds) && !worlds.contains("[ALL]") && !worlds.contains(world.getName())) {
                     continue;
                 }
                 int i = new Random().nextInt(10);

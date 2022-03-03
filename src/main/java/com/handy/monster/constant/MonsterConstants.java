@@ -4,11 +4,8 @@ import com.handy.lib.util.LotteryUtil;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-import java.util.List;
-
 /**
- * @author hs
- * @date 2020/4/4 20:10
+ * @author handy
  */
 @Getter
 @AllArgsConstructor
@@ -30,8 +27,6 @@ public class MonsterConstants {
     public static Integer enchantmentNumber = 0;
 
     public static Boolean isUse = true;
-
-    public static List<String> worlds;
 
     public static Double levelHealth = 0.0D;
     public static Double levelDamage = 0.0D;
