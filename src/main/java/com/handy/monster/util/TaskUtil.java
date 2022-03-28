@@ -140,9 +140,11 @@ public class TaskUtil {
                             break;
                         case V_1_16:
                         case V_1_17:
+                        case V_1_18:
                             SixteenCreatureSpawn.setCreatureSpawn(livingEntity);
                             break;
                         default:
+                            SixteenCreatureSpawn.setCreatureSpawn(livingEntity);
                             break;
                     }
                 }
