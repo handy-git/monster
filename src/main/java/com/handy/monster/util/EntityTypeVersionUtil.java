@@ -74,6 +74,7 @@ public class EntityTypeVersionUtil {
         map16.put("CAVE_SPIDER", "洞穴蜘蛛");
         ENTITY_TYPE_MAP.put(VersionCheckEnum.V_1_16.getVersionId(), map16);
         ENTITY_TYPE_MAP.put(VersionCheckEnum.V_1_17.getVersionId(), map16);
+        ENTITY_TYPE_MAP.put(VersionCheckEnum.V_1_18.getVersionId(), map16);
     }
 
     /**
