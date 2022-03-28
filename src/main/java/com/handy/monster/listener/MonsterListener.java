@@ -63,9 +63,11 @@ public class MonsterListener implements Listener {
                 break;
             case V_1_16:
             case V_1_17:
+            case V_1_18:
                 SixteenCreatureSpawn.setCreatureSpawn(event);
                 break;
             default:
+                SixteenCreatureSpawn.setCreatureSpawn(event);
                 break;
         }
     }
