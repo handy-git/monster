@@ -1,9 +1,9 @@
-package com.handy.monster.util;
+package cn.handyplus.monster.util;
 
-import com.handy.lib.constants.VersionCheckEnum;
-import com.handy.monster.constant.EntityEquipmentTypeEnum;
-import com.handy.monster.constant.MonsterConstants;
-import com.handy.monster.entity.MonsterParam;
+import cn.handyplus.lib.constants.VersionCheckEnum;
+import cn.handyplus.monster.constant.EntityEquipmentTypeEnum;
+import cn.handyplus.monster.constant.MonsterConstants;
+import cn.handyplus.monster.entity.MonsterParam;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.EntityEquipment;
@@ -13,8 +13,7 @@ import java.util.Map;
 import java.util.Random;
 
 /**
- * @author hs
- * @date 2020/4/4 20:10
+ * @author handy
  */
 public class MonsterEquipmentUtil {
 

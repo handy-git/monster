@@ -1,13 +1,13 @@
-package com.handy.monster.listener;
+package cn.handyplus.monster.listener;
 
-import com.handy.lib.annotation.HandyListener;
-import com.handy.lib.constants.VersionCheckEnum;
-import com.handy.lib.core.CollUtil;
-import com.handy.monster.constant.MonsterConstants;
-import com.handy.monster.spawn.ElevenCreatureSpawn;
-import com.handy.monster.spawn.NineCreatureSpawn;
-import com.handy.monster.spawn.SixteenCreatureSpawn;
-import com.handy.monster.util.ConfigUtil;
+import cn.handyplus.lib.annotation.HandyListener;
+import cn.handyplus.lib.constants.VersionCheckEnum;
+import cn.handyplus.lib.core.CollUtil;
+import cn.handyplus.monster.constant.MonsterConstants;
+import cn.handyplus.monster.spawn.ElevenCreatureSpawn;
+import cn.handyplus.monster.spawn.NineCreatureSpawn;
+import cn.handyplus.monster.spawn.SixteenCreatureSpawn;
+import cn.handyplus.monster.util.ConfigUtil;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.CreatureSpawnEvent;
@@ -15,7 +15,7 @@ import org.bukkit.event.entity.CreatureSpawnEvent;
 import java.util.List;
 
 /**
- * @author hs
+ * @author handy
  * @date 2020/4/4 20:10
  */
 @HandyListener
@@ -64,8 +64,8 @@ public class MonsterListener implements Listener {
             case V_1_16:
             case V_1_17:
             case V_1_18:
-                SixteenCreatureSpawn.setCreatureSpawn(event);
-                break;
+            case V_1_19:
+            case V_1_20:
             default:
                 SixteenCreatureSpawn.setCreatureSpawn(event);
                 break;

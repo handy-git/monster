@@ -1,6 +1,6 @@
-package com.handy.monster.constant;
+package cn.handyplus.monster.constant;
 
-import com.handy.lib.util.LotteryUtil;
+import cn.handyplus.lib.util.LotteryUtil;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

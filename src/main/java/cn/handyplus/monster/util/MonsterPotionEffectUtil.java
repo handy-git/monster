@@ -1,4 +1,4 @@
-package com.handy.monster.util;
+package cn.handyplus.monster.util;
 
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.potion.PotionEffect;
@@ -7,8 +7,7 @@ import org.bukkit.potion.PotionEffectType;
 import java.util.Random;
 
 /**
- * @author hs
- * @date 2020/4/4 20:10
+ * @author handy
  */
 public class MonsterPotionEffectUtil {
 

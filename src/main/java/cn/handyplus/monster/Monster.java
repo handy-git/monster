@@ -1,9 +1,9 @@
-package com.handy.monster;
+package cn.handyplus.monster;
 
-import com.handy.lib.InitApi;
-import com.handy.lib.api.MessageApi;
-import com.handy.monster.util.ConfigUtil;
-import com.handy.monster.util.TaskUtil;
+import cn.handyplus.lib.InitApi;
+import cn.handyplus.lib.api.MessageApi;
+import cn.handyplus.monster.util.ConfigUtil;
+import cn.handyplus.monster.util.TaskUtil;
 import org.bukkit.plugin.java.JavaPlugin;
 
 /**
@@ -12,16 +12,15 @@ import org.bukkit.plugin.java.JavaPlugin;
  * @author handy
  */
 public final class Monster extends JavaPlugin {
-    public static Monster instance;
+    public static Monster INSTANCE;
 
     @Override
     public void onEnable() {
-        instance = this;
+        INSTANCE = this;
         ConfigUtil.getConfig();
         InitApi.getInstance(this)
-                .initCommand("com.handy.monster.command")
-                .initListener("com.handy.monster.listener")
-        ;
+                .initCommand("cn.handyplus.monster.command")
+                .initListener("cn.handyplus.monster.listener");
         // 设置怪物生成
         TaskUtil.setAsyncMonsterSpawn();
         TaskUtil.clearPlayer();
@@ -34,7 +33,7 @@ public final class Monster extends JavaPlugin {
     }
 
     public static Monster getInstance() {
-        return instance;
+        return INSTANCE;
     }
 
 }

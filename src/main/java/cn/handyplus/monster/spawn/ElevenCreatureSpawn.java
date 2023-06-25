@@ -1,21 +1,20 @@
-package com.handy.monster.spawn;
+package cn.handyplus.monster.spawn;
 
-import com.handy.monster.constant.EntityEquipmentTypeEnum;
-import com.handy.monster.util.MonsterEquipmentUtil;
-import com.handy.monster.util.MonsterLevelUtil;
-import com.handy.monster.util.MonsterPotionEffectUtil;
+import cn.handyplus.monster.constant.EntityEquipmentTypeEnum;
+import cn.handyplus.monster.util.MonsterEquipmentUtil;
+import cn.handyplus.monster.util.MonsterLevelUtil;
+import cn.handyplus.monster.util.MonsterPotionEffectUtil;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.event.entity.CreatureSpawnEvent;
 import org.bukkit.inventory.EntityEquipment;
 
 /**
- * 1.16版本
+ * 1.11-1.15版本
  *
  * @author handy
- * @date 2020/10/10 16:06
  */
-public class SixteenCreatureSpawn {
+public class ElevenCreatureSpawn {
 
     /**
      * 设置怪物出生的装备和药水效果
@@ -47,21 +46,9 @@ public class SixteenCreatureSpawn {
             MonsterEquipmentUtil.lotteryEquipment(equipment, EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_SWORD);
             MonsterLevelUtil.setLevel(entity, "尸壳");
         }
-        if (name.equals(EntityType.valueOf("DROWNED").getName())) {
+        if (name.equals(EntityType.valueOf("PIG_ZOMBIE").getName())) {
             MonsterEquipmentUtil.lotteryEquipment(equipment, EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_SWORD);
-            MonsterLevelUtil.setLevel(entity, "溺尸");
-        }
-        if (name.equals(EntityType.valueOf("PIGLIN").getName())) {
-            MonsterEquipmentUtil.lotteryEquipment(equipment, EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_SWORD);
-            MonsterLevelUtil.setLevel(entity, "猪灵");
-        }
-        if (name.equals(EntityType.valueOf("ZOMBIFIED_PIGLIN").getName())) {
-            MonsterEquipmentUtil.lotteryEquipment(equipment, EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_SWORD);
-            MonsterLevelUtil.setLevel(entity, "僵尸猪灵");
-        }
-        if (name.equals(EntityType.valueOf("PIGLIN_BRUTE").getName())) {
-            MonsterEquipmentUtil.lotteryEquipment(equipment, null);
-            MonsterLevelUtil.setLevel(entity, "猪灵蛮兵");
+            MonsterLevelUtil.setLevel(entity, "猪人");
         }
         if (name.equals(EntityType.valueOf("SKELETON").getName())) {
             MonsterEquipmentUtil.lotteryEquipment(equipment, EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_BOW);

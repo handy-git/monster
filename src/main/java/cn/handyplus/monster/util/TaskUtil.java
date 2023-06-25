@@ -1,14 +1,14 @@
-package com.handy.monster.util;
+package cn.handyplus.monster.util;
 
-import com.handy.lib.api.MessageApi;
-import com.handy.lib.constants.VersionCheckEnum;
-import com.handy.lib.core.CollUtil;
-import com.handy.lib.util.BaseUtil;
-import com.handy.monster.Monster;
-import com.handy.monster.constant.MonsterConstants;
-import com.handy.monster.spawn.ElevenCreatureSpawn;
-import com.handy.monster.spawn.NineCreatureSpawn;
-import com.handy.monster.spawn.SixteenCreatureSpawn;
+import cn.handyplus.lib.api.MessageApi;
+import cn.handyplus.lib.constants.VersionCheckEnum;
+import cn.handyplus.lib.core.CollUtil;
+import cn.handyplus.lib.util.BaseUtil;
+import cn.handyplus.monster.Monster;
+import cn.handyplus.monster.constant.MonsterConstants;
+import cn.handyplus.monster.spawn.ElevenCreatureSpawn;
+import cn.handyplus.monster.spawn.NineCreatureSpawn;
+import cn.handyplus.monster.spawn.SixteenCreatureSpawn;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;

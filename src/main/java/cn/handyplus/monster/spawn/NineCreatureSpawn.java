@@ -1,21 +1,20 @@
-package com.handy.monster.spawn;
+package cn.handyplus.monster.spawn;
 
-import com.handy.monster.constant.EntityEquipmentTypeEnum;
-import com.handy.monster.util.MonsterEquipmentUtil;
-import com.handy.monster.util.MonsterLevelUtil;
-import com.handy.monster.util.MonsterPotionEffectUtil;
+import cn.handyplus.monster.constant.EntityEquipmentTypeEnum;
+import cn.handyplus.monster.util.MonsterEquipmentUtil;
+import cn.handyplus.monster.util.MonsterLevelUtil;
+import cn.handyplus.monster.util.MonsterPotionEffectUtil;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.event.entity.CreatureSpawnEvent;
 import org.bukkit.inventory.EntityEquipment;
 
 /**
- * 1.11-1.15版本
+ * 1.9-1.10版本
  *
  * @author handy
- * @date 2020/10/10 16:06
  */
-public class ElevenCreatureSpawn {
+public class NineCreatureSpawn {
 
     /**
      * 设置怪物出生的装备和药水效果
@@ -29,23 +28,13 @@ public class ElevenCreatureSpawn {
     public static void setCreatureSpawn(LivingEntity entity) {
         EntityType entityType = entity.getType();
         EntityEquipment equipment = entity.getEquipment();
-
         String name = entityType.getName();
         if (name == null || "".equals(name)) {
             return;
         }
-
         if (name.equals(EntityType.valueOf("ZOMBIE").getName())) {
             MonsterEquipmentUtil.lotteryEquipment(equipment, EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_SWORD);
             MonsterLevelUtil.setLevel(entity, "僵尸");
-        }
-        if (name.equals(EntityType.valueOf("ZOMBIE_VILLAGER").getName())) {
-            MonsterEquipmentUtil.lotteryEquipment(equipment, EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_SWORD);
-            MonsterLevelUtil.setLevel(entity, "僵尸村民");
-        }
-        if (name.equals(EntityType.valueOf("HUSK").getName())) {
-            MonsterEquipmentUtil.lotteryEquipment(equipment, EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_SWORD);
-            MonsterLevelUtil.setLevel(entity, "尸壳");
         }
         if (name.equals(EntityType.valueOf("PIG_ZOMBIE").getName())) {
             MonsterEquipmentUtil.lotteryEquipment(equipment, EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_SWORD);
@@ -54,14 +43,6 @@ public class ElevenCreatureSpawn {
         if (name.equals(EntityType.valueOf("SKELETON").getName())) {
             MonsterEquipmentUtil.lotteryEquipment(equipment, EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_BOW);
             MonsterLevelUtil.setLevel(entity, "骷髅");
-        }
-        if (name.equals(EntityType.valueOf("WITHER_SKELETON").getName())) {
-            MonsterEquipmentUtil.lotteryEquipment(equipment, EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_BOW);
-            MonsterLevelUtil.setLevel(entity, "凋零骷髅");
-        }
-        if (name.equals(EntityType.valueOf("STRAY").getName())) {
-            MonsterEquipmentUtil.lotteryEquipment(equipment, EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_BOW);
-            MonsterLevelUtil.setLevel(entity, "流浪者");
         }
         if (name.equals(EntityType.valueOf("SPIDER").getName())) {
             MonsterPotionEffectUtil.getPotionEffect(entity);

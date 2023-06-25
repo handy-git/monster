@@ -1,6 +1,6 @@
-package com.handy.monster.entity;
+package cn.handyplus.monster.entity;
 
-import com.handy.monster.constant.EntityEquipmentTypeEnum;
+import cn.handyplus.monster.constant.EntityEquipmentTypeEnum;
 import lombok.Data;
 import org.bukkit.Material;
 import org.bukkit.inventory.EntityEquipment;
@@ -8,8 +8,7 @@ import org.bukkit.inventory.EntityEquipment;
 /**
  * 怪物参数
  *
- * @author hs
- * @date 2020/4/4 20:10
+ * @author handy
  */
 @Data
 public class MonsterParam {

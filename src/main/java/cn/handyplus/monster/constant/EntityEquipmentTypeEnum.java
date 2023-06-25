@@ -1,11 +1,10 @@
-package com.handy.monster.constant;
+package cn.handyplus.monster.constant;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
- * @author hs
- * @date 2020/4/4 20:10
+ * @author handy
  */
 @Getter
 @AllArgsConstructor

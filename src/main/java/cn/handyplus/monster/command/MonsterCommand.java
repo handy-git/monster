@@ -1,12 +1,12 @@
-package com.handy.monster.command;
+package cn.handyplus.monster.command;
 
-import com.handy.lib.annotation.HandyCommand;
-import com.handy.lib.annotation.HandySubCommand;
-import com.handy.lib.command.HandyCommandFactory;
-import com.handy.lib.util.BaseUtil;
-import com.handy.monster.Monster;
-import com.handy.monster.constant.MonsterConstants;
-import com.handy.monster.util.ConfigUtil;
+import cn.handyplus.lib.annotation.HandyCommand;
+import cn.handyplus.lib.annotation.HandySubCommand;
+import cn.handyplus.lib.command.HandyCommandFactory;
+import cn.handyplus.lib.util.BaseUtil;
+import cn.handyplus.monster.Monster;
+import cn.handyplus.monster.constant.MonsterConstants;
+import cn.handyplus.monster.util.ConfigUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -23,7 +23,6 @@ import java.util.List;
  * 指令
  *
  * @author handy
- * @date 2020/10/10 15:00
  */
 @HandyCommand(name = "monster")
 public class MonsterCommand implements TabExecutor {

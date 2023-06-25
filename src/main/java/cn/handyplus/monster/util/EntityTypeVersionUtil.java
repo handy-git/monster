@@ -1,6 +1,6 @@
-package com.handy.monster.util;
+package cn.handyplus.monster.util;
 
-import com.handy.lib.constants.VersionCheckEnum;
+import cn.handyplus.lib.constants.VersionCheckEnum;
 
 import java.util.HashMap;
 import java.util.Map;

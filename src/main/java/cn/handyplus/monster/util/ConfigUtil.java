@@ -1,9 +1,9 @@
-package com.handy.monster.util;
+package cn.handyplus.monster.util;
 
-import com.handy.lib.constants.BaseConstants;
-import com.handy.lib.util.LotteryUtil;
-import com.handy.monster.Monster;
-import com.handy.monster.constant.MonsterConstants;
+import cn.handyplus.lib.constants.BaseConstants;
+import cn.handyplus.lib.util.LotteryUtil;
+import cn.handyplus.monster.Monster;
+import cn.handyplus.monster.constant.MonsterConstants;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
@@ -18,8 +18,7 @@ import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
- * @author hs
- * @date 2020/4/4 20:10
+ * @author handy
  */
 public class ConfigUtil {
     public static FileConfiguration config;

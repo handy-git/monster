@@ -4,17 +4,17 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.handy.monster</groupId>
+    <groupId>cn.handyplus.monster</groupId>
     <artifactId>Monster</artifactId>
     <name>Monster</name>
-    <version>3.0.5</version>
-    <description>一个有点好用的怪物插件!</description>
+    <version>3.0.6</version>
+    <description>一个有点好用的怪物插件</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spigot-api.vesion>1.18.2-R0.1-SNAPSHOT</spigot-api.vesion>
-        <lombok.version>1.18.22</lombok.version>
-        <HandyLib.version>2.9.5</HandyLib.version>
+        <spigot-api.vesion>1.19.2-R0.1-SNAPSHOT</spigot-api.vesion>
+        <lombok.version>1.18.28</lombok.version>
+        <HandyLib.version>3.6.8</HandyLib.version>
     </properties>
 
     <dependencies>
@@ -31,7 +31,7 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>com.handy.lib</groupId>
+            <groupId>cn.handyplus.lib</groupId>
             <artifactId>HandyLib</artifactId>
             <version>${HandyLib.version}</version>
         </dependency>
@@ -58,13 +58,13 @@
                     <createDependencyReducedPom>false</createDependencyReducedPom>
                     <artifactSet>
                         <includes>
-                            <include>com.handy.lib:*:*:*</include>
+                            <include>cn.handyplus.lib:*:*:*</include>
                         </includes>
                     </artifactSet>
                     <relocations>
                         <relocation>
-                            <pattern>com.handy.lib</pattern>
-                            <shadedPattern>com.handy.monster.lib</shadedPattern>
+                            <pattern>cn.handyplus.lib</pattern>
+                            <shadedPattern>cn.handyplus.monster.lib</shadedPattern>
                         </relocation>
                     </relocations>
                 </configuration>

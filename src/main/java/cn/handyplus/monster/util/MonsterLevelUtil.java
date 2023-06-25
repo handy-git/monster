@@ -1,7 +1,7 @@
-package com.handy.monster.util;
+package cn.handyplus.monster.util;
 
-import com.handy.lib.constants.VersionCheckEnum;
-import com.handy.lib.core.CollUtil;
+import cn.handyplus.lib.constants.VersionCheckEnum;
+import cn.handyplus.lib.core.CollUtil;
 import org.bukkit.ChatColor;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeInstance;
@@ -14,8 +14,7 @@ import java.util.Random;
 import java.util.Set;
 
 /**
- * @author hs
- * @date 2020/4/4 20:10
+ * @author handy
  */
 public class MonsterLevelUtil {
 
