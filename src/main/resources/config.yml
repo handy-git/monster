@@ -1,0 +1,64 @@
+# 怪物合金装备生成概率和死亡掉率 1.16有效
+netherite: 0.1
+netheriteDropChance: 0.001
+
+# 怪物钻石装备生成概率和死亡掉率
+Diamond: 0.1
+DiamondDropChance: 0.005
+
+# 怪物铁装备生成概率和死亡掉率
+Iron: 0.2
+IronDropChance: 0.01
+
+# 怪物金装备生成概率和死亡掉率
+Golden: 0.2
+GoldenDropChance: 0.015
+
+# 怪物锁链装备生成概率和死亡掉率
+ChainMail: 0.2
+ChainMailDropChance: 0.02
+
+# 怪物皮革装备生成概率和死亡掉率
+Leather: 0.2
+LeatherDropChance: 0.025
+
+# 装备随机附魔的概率和最大随机附魔数量
+Enchantment: 0.4
+EnchantmentNumber: 2
+
+# 启用怪物等级规则的世界 如果填 [ALL] 意思是全部世界都启用
+worlds:
+  - "[ALL]"
+  - "world"
+  - "zy"
+
+# 怪物初始等级范围
+randomLevel: 20
+
+# 怪物攻击玩家升级概率
+levelProbability: 0.1
+
+# 玩家攻击怪物,怪物瞬移的概率
+teleport: 0.1
+
+# 每级增加血量
+levelHealth: 1
+# 每级增加伤害
+levelDamage: 0.1
+
+monsterOnMsg: "§a请注意:op开启了超强怪物,超强怪物即将来袭!!!!"
+monsterOffMsg: "§a请注意:超强怪物已经关闭,超强怪物不在刷新!!!!"
+
+# 生成类型, add 新增生物  replace 替换原版生物
+spawn: add
+
+# add类型 在玩家附近生成怪物的最小范围
+minBound: 10
+# add类型 在玩家附近生成怪物的最大范围
+maxBound: 30
+
+# add类型 生成速度 单位秒
+time: 60
+
+# 一个玩家的生成冷却时间 单位秒
+addPlayerCd: 300
