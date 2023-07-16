@@ -1,9 +1,10 @@
 package cn.handyplus.monster;
 
 import cn.handyplus.lib.InitApi;
-import cn.handyplus.lib.api.MessageApi;
+import cn.handyplus.lib.util.MessageUtil;
 import cn.handyplus.monster.util.ConfigUtil;
 import cn.handyplus.monster.util.TaskUtil;
+import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
 /**
@@ -24,12 +25,9 @@ public final class Monster extends JavaPlugin {
         // 设置怪物生成
         TaskUtil.setAsyncMonsterSpawn();
         TaskUtil.clearPlayer();
-        MessageApi.sendConsoleMessage("&aMonster插件成功开启");
-    }
 
-    @Override
-    public void onDisable() {
-        MessageApi.sendConsoleMessage("&aMonster插件成功关闭");
+        MessageUtil.sendConsoleMessage(ChatColor.GREEN + "已成功载入服务器！");
+        MessageUtil.sendConsoleMessage(ChatColor.GREEN + "Author:handy MCBBS: https://www.mcbbs.net/thread-963507-1-1.html");
     }
 
     public static Monster getInstance() {

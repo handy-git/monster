@@ -1,9 +1,9 @@
 package cn.handyplus.monster.listener;
 
 import cn.handyplus.lib.annotation.HandyListener;
-import cn.handyplus.lib.api.MessageApi;
 import cn.handyplus.lib.core.CollUtil;
 import cn.handyplus.lib.util.BaseUtil;
+import cn.handyplus.lib.util.MessageUtil;
 import cn.handyplus.lib.util.ProbabilityUtil;
 import cn.handyplus.monster.util.ConfigUtil;
 import cn.handyplus.monster.util.MonsterLevelUtil;
@@ -56,7 +56,7 @@ public class MonsterLevelListener implements Listener {
         }
         // 获取当前等级
         int level = MonsterLevelUtil.getLevel(livingEntity);
-        MessageApi.sendDebugMessage(player, player.getName() + " 正在攻击的" + livingEntity.getCustomName() + ",当前等级:" + level);
+        MessageUtil.sendDebugMessage(player, player.getName() + " 正在攻击的" + livingEntity.getCustomName() + ",当前等级:" + level);
         if (level == -1) {
             return;
         }
@@ -89,7 +89,7 @@ public class MonsterLevelListener implements Listener {
         Player player = (Player) event.getDamager();
         // 获取当前等级
         int level = MonsterLevelUtil.getLevel(livingEntity);
-        MessageApi.sendDebugMessage(player, player.getName() + " 正在攻击的" + livingEntity.getCustomName() + ",当前等级:" + level);
+        MessageUtil.sendDebugMessage(player, player.getName() + " 正在攻击的" + livingEntity.getCustomName() + ",当前等级:" + level);
         if (level == -1) {
             return;
         }

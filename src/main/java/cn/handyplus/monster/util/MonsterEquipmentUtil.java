@@ -46,8 +46,13 @@ public class MonsterEquipmentUtil {
                 if (enchantmentsMap.get(enchantment) != null) {
                     continue;
                 }
+                // 等级处理
+                int maxLevel = enchantment.getMaxLevel();
+                if (maxLevel < 1) {
+                    continue;
+                }
                 // 进行附魔
-                int level = (new Random()).nextInt(enchantment.getMaxLevel());
+                int level = (new Random()).nextInt(maxLevel);
                 itemStack.addEnchantment(enchantment, level != 0 ? level : enchantment.getStartLevel());
             }
         }

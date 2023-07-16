@@ -1,9 +1,9 @@
 package cn.handyplus.monster.util;
 
-import cn.handyplus.lib.api.MessageApi;
 import cn.handyplus.lib.constants.VersionCheckEnum;
 import cn.handyplus.lib.core.CollUtil;
 import cn.handyplus.lib.util.BaseUtil;
+import cn.handyplus.lib.util.MessageUtil;
 import cn.handyplus.monster.Monster;
 import cn.handyplus.monster.constant.MonsterConstants;
 import cn.handyplus.monster.spawn.ElevenCreatureSpawn;
@@ -62,9 +62,9 @@ public class TaskUtil {
                     long keepAlive = (System.currentTimeMillis() - time) / 1000L;
                     if (keepAlive >= addPlayerCd) {
                         PLAYER_TIME_MAP.remove(player.getUniqueId());
-                        MessageApi.sendDebugMessage(player, ChatColor.AQUA + player.getName() + "该玩家生成时间重置完成");
+                        MessageUtil.sendDebugMessage(player, ChatColor.AQUA + player.getName() + "该玩家生成时间重置完成");
                     } else {
-                        MessageApi.sendDebugMessage(player, ChatColor.AQUA + player.getName() + "该玩家距离生成时间还差: " + (addPlayerCd - keepAlive));
+                        MessageUtil.sendDebugMessage(player, ChatColor.AQUA + player.getName() + "该玩家距离生成时间还差: " + (addPlayerCd - keepAlive));
                     }
                 }
             }
@@ -96,7 +96,7 @@ public class TaskUtil {
             // 获取在线玩家
             for (Player player : Bukkit.getOnlinePlayers()) {
                 if (PLAYER_TIME_MAP.get(player.getUniqueId()) != null) {
-                    MessageApi.sendDebugMessage(player, ChatColor.AQUA + "该玩家生成时间正在冷却");
+                    MessageUtil.sendDebugMessage(player, ChatColor.AQUA + "该玩家生成时间正在冷却");
                     continue;
                 }
                 // 是否夜晚
@@ -118,7 +118,7 @@ public class TaskUtil {
                     String key = keyList.get(new Random().nextInt(entityTypeMap.size()));
                     TextComponent message = new TextComponent(ChatColor.BLUE + "怪物出生点, x:" + randomLocation.getX() + ",y: " + randomLocation.getY() + ",z:" + randomLocation.getZ());
                     message.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/tp " + randomLocation.getX() + " " + randomLocation.getY() + " " + randomLocation.getZ()));
-                    MessageApi.sendDebugMessage(player, message);
+                    MessageUtil.sendDebugMessage(player, message);
                     // 获取怪物
                     EntityType entitytype = EntityType.valueOf(key);
                     Entity entity = world.spawnEntity(randomLocation, entitytype);
