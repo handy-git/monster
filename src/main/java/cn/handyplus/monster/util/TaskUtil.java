@@ -21,7 +21,12 @@ import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
+import java.util.UUID;
 import java.util.concurrent.Semaphore;
 
 /**
@@ -88,9 +93,7 @@ public class TaskUtil {
                 return;
             }
             List<String> keyList = new ArrayList<>(entityTypeMap.size());
-            entityTypeMap.forEach((key, value) -> {
-                keyList.add(key);
-            });
+            entityTypeMap.forEach((key, value) -> keyList.add(key));
             int minBound = ConfigUtil.config.getInt("minBound");
             int maxBound = ConfigUtil.config.getInt("maxBound");
             // 获取在线玩家
@@ -141,8 +144,6 @@ public class TaskUtil {
                         case V_1_16:
                         case V_1_17:
                         case V_1_18:
-                            SixteenCreatureSpawn.setCreatureSpawn(livingEntity);
-                            break;
                         default:
                             SixteenCreatureSpawn.setCreatureSpawn(livingEntity);
                             break;

@@ -3,6 +3,7 @@ package cn.handyplus.monster.command;
 import cn.handyplus.lib.annotation.HandyCommand;
 import cn.handyplus.lib.annotation.HandySubCommand;
 import cn.handyplus.lib.command.HandyCommandFactory;
+import cn.handyplus.lib.core.NumberUtil;
 import cn.handyplus.lib.util.BaseUtil;
 import cn.handyplus.monster.Monster;
 import cn.handyplus.monster.constant.MonsterConstants;
@@ -57,7 +58,7 @@ public class MonsterCommand implements TabExecutor {
             Bukkit.broadcastMessage(monsterOnMsg != null ? monsterOnMsg : "");
             return;
         }
-        Integer num = BaseUtil.isNumericToInt(args[1]);
+        Integer num = NumberUtil.isNumericToInt(args[1]);
         if (num == null) {
             sender.sendMessage(BaseUtil.replaceChatColor("&4子参数只能为数字,单位为秒"));
             return;

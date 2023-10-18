@@ -16,7 +16,6 @@ import java.util.List;
 
 /**
  * @author handy
- * @date 2020/4/4 20:10
  */
 @HandyListener
 public class MonsterListener implements Listener {

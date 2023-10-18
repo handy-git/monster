@@ -1,5 +1,6 @@
 package cn.handyplus.monster.spawn;
 
+import cn.handyplus.lib.core.StrUtil;
 import cn.handyplus.monster.constant.EntityEquipmentTypeEnum;
 import cn.handyplus.monster.util.MonsterEquipmentUtil;
 import cn.handyplus.monster.util.MonsterLevelUtil;
@@ -30,7 +31,7 @@ public class SixteenCreatureSpawn {
         EntityEquipment equipment = entity.getEquipment();
 
         String name = entityType.getName();
-        if (name == null || "".equals(name)) {
+        if (StrUtil.isEmpty(name)) {
             return;
         }
 

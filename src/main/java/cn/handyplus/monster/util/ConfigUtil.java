@@ -26,7 +26,7 @@ public class ConfigUtil {
 
     public static void getConfig() {
         if (!Monster.getInstance().getDataFolder().exists()) {
-            Monster.getInstance().getDataFolder().mkdir();
+            boolean mkdir = Monster.getInstance().getDataFolder().mkdir();
         }
 
         File configFile = new File(Monster.getInstance().getDataFolder(), "config.yml");
@@ -144,9 +144,9 @@ public class ConfigUtil {
         int newZ = ThreadLocalRandom.current().nextInt(z + minBound, z + maxBound);
         int newY = world.getHighestBlockYAt(newX, newZ);
 
-        Location checkLoc = new Location(world, (double) newX, (double) (newY - 1), (double) newZ);
+        Location checkLoc = new Location(world, newX, newY - 1, newZ);
         Block block = world.getBlockAt(checkLoc);
-        Location loc = new Location(world, (double) newX, (double) (newY + 1), (double) newZ);
+        Location loc = new Location(world, newX, newY + 1, newZ);
         // 过滤方块类型
         List<Material> materials = Arrays.asList(Material.WATER, Material.LAVA);
         if (materials.contains(block.getType())) {

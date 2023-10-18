@@ -24,7 +24,7 @@ public class EntityTypeVersionUtil {
     }
 
     public static EntityTypeVersionUtil getInstance() {
-        if (ENTITY_TYPE_MAP.size() == 0) {
+        if (ENTITY_TYPE_MAP.isEmpty()) {
             init();
         }
         return EntityTypeVersionUtil.SingletonHolder.INSTANCE;

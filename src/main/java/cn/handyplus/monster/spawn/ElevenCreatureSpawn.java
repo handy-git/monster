@@ -1,5 +1,6 @@
 package cn.handyplus.monster.spawn;
 
+import cn.handyplus.lib.core.StrUtil;
 import cn.handyplus.monster.constant.EntityEquipmentTypeEnum;
 import cn.handyplus.monster.util.MonsterEquipmentUtil;
 import cn.handyplus.monster.util.MonsterLevelUtil;
@@ -30,7 +31,7 @@ public class ElevenCreatureSpawn {
         EntityEquipment equipment = entity.getEquipment();
 
         String name = entityType.getName();
-        if (name == null || "".equals(name)) {
+        if (StrUtil.isEmpty(name)) {
             return;
         }
 
@@ -55,7 +56,7 @@ public class ElevenCreatureSpawn {
             MonsterLevelUtil.setLevel(entity, "骷髅");
         }
         if (name.equals(EntityType.valueOf("WITHER_SKELETON").getName())) {
-            MonsterEquipmentUtil.lotteryEquipment(equipment, EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_BOW);
+            MonsterEquipmentUtil.lotteryEquipment(equipment, EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_SWORD);
             MonsterLevelUtil.setLevel(entity, "凋零骷髅");
         }
         if (name.equals(EntityType.valueOf("STRAY").getName())) {

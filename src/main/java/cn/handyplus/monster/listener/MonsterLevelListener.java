@@ -2,11 +2,11 @@ package cn.handyplus.monster.listener;
 
 import cn.handyplus.lib.annotation.HandyListener;
 import cn.handyplus.lib.core.CollUtil;
-import cn.handyplus.lib.util.BaseUtil;
 import cn.handyplus.lib.util.MessageUtil;
 import cn.handyplus.lib.util.ProbabilityUtil;
 import cn.handyplus.monster.util.ConfigUtil;
 import cn.handyplus.monster.util.MonsterLevelUtil;
+import cn.handyplus.monster.util.MonsterUtil;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -60,7 +60,7 @@ public class MonsterLevelListener implements Listener {
         if (level == -1) {
             return;
         }
-        MonsterLevelUtil.setLevel(livingEntity, BaseUtil.getSeparatorCustomName(livingEntity.getCustomName(), "]"), level + 1);
+        MonsterLevelUtil.setLevel(livingEntity, MonsterUtil.getSeparatorCustomName(livingEntity.getCustomName(), "]"), level + 1);
         player.sendMessage("绝处逢生:" + livingEntity.getCustomName() + "攻击了你,它升级了...");
     }
 

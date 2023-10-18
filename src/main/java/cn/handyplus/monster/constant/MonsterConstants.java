@@ -4,6 +4,8 @@ import cn.handyplus.lib.util.LotteryUtil;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.util.regex.Pattern;
+
 /**
  * @author handy
  */
@@ -33,5 +35,10 @@ public class MonsterConstants {
 
     public static Double levelEliteHealth = 1.0D;
     public static Double levelEliteDamage = 1.0D;
+
+    /**
+     * 括号数字正则
+     */
+    public static final Pattern BRACKET_NUMBER = Pattern.compile("\\[(\\d+)]");
 
 }
