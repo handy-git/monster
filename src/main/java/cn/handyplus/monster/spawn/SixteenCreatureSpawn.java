@@ -68,7 +68,7 @@ public class SixteenCreatureSpawn {
             MonsterLevelUtil.setLevel(entity, "骷髅");
         }
         if (name.equals(EntityType.valueOf("WITHER_SKELETON").getName())) {
-            MonsterEquipmentUtil.lotteryEquipment(equipment, EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_BOW);
+            MonsterEquipmentUtil.lotteryEquipment(equipment, EntityEquipmentTypeEnum.ITEM_IN_MAIN_HAND_SWORD);
             MonsterLevelUtil.setLevel(entity, "凋零骷髅");
         }
         if (name.equals(EntityType.valueOf("STRAY").getName())) {
