@@ -50,6 +50,10 @@ public class MonsterLevelListener implements Listener {
             return;
         }
         Player player = (Player) event.getEntity();
+        // 已经死亡不在升级
+        if (livingEntity.getHealth() - event.getFinalDamage() <= 0) {
+            return;
+        }
         // 怪物攻击玩家升级概率
         if (!ProbabilityUtil.getInstance().pickIndex(ConfigUtil.config.getDouble("levelProbability"))) {
             return;
