@@ -90,6 +90,10 @@ public class MonsterLevelListener implements Listener {
         if (livingEntity.getCustomName() == null) {
             return;
         }
+        // 已经死亡不在处理
+        if (livingEntity.getHealth() - event.getFinalDamage() <= 0) {
+            return;
+        }
         Player player = (Player) event.getDamager();
         // 获取当前等级
         int level = MonsterLevelUtil.getLevel(livingEntity);
