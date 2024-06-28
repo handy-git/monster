@@ -27,7 +27,7 @@ public final class Monster extends JavaPlugin {
         TaskUtil.clearPlayer();
 
         MessageUtil.sendConsoleMessage(ChatColor.GREEN + "已成功载入服务器！");
-        MessageUtil.sendConsoleMessage(ChatColor.GREEN + "Author:handy MCBBS: https://www.mcbbs.net/thread-963507-1-1.html");
+        MessageUtil.sendConsoleMessage(ChatColor.GREEN + "Author:handy WIKI: https://ricedoc.handyplus.cn/wiki/monster/");
     }
 
     public static Monster getInstance() {

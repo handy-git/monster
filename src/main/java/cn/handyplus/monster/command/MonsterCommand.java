@@ -2,7 +2,7 @@ package cn.handyplus.monster.command;
 
 import cn.handyplus.lib.annotation.HandyCommand;
 import cn.handyplus.lib.annotation.HandySubCommand;
-import cn.handyplus.lib.command.HandyCommandFactory;
+import cn.handyplus.lib.command.HandyCommandWrapper;
 import cn.handyplus.lib.core.NumberUtil;
 import cn.handyplus.lib.util.BaseUtil;
 import cn.handyplus.monster.Monster;
@@ -34,7 +34,7 @@ public class MonsterCommand implements TabExecutor {
         if (args.length < 1) {
             return true;
         }
-        HandyCommandFactory.getInstance().onSubCommand("monster", sender, cmd, label, args, "&4没有权限");
+        HandyCommandWrapper.onSubCommand("monster", sender, cmd, label, args, "&4没有权限");
         return true;
     }
 
